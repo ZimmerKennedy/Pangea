@@ -1,0 +1,47 @@
+#navDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #163172;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#titleDiv{
+    background-color: #D6E4F0;
+    border: solid #163172;
+}
+
+#title{
+    text-align: center;
+    color: #1E56A0;
+    font-family: fantasy;
+    font-size: 50px;
+}
+
+.navLinks{
+    text-decoration: none;
+    color: #F6F6F6;
+    font-size: 20px;
+}
+
+#logoutBtn{
+    height: 25px;
+    font-size: 15px;
+}
+
+#loginBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+#loginDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+#accountIcon{
+    width: 20px;
+}

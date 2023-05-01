@@ -1,0 +1,52 @@
+.dashboard {
+  display: flex;
+  background: rgb(246, 246, 246);
+  background: linear-gradient(90deg, rgba(246, 246, 246, 1) 0%, rgba(214, 228, 240, 1) 44%, rgba(30, 86, 160, 1) 79%, rgba(22, 49, 114, 1) 99%);
+  height: 100%;
+  margin-left: 17vw;
+  justify-content: center;
+  flex-direction: row;
+  width: 83vw;
+
+  .widget {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #1E56A0;
+  }
+
+  .featured {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #1E56A0;
+  }
+
+  .dashboardContainer {
+    flex: 6;
+
+    .widgets,
+    .charts {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+      width: 80vw;
+    }
+
+    .chart {
+      padding: 5px 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px #1E56A0;
+    }
+
+    .listContainer {
+      background-color: #fff;
+      box-shadow: 0px 0px 10px #1E56A0;
+      padding: 20px;
+      margin: 20px;
+      width: 78vw;
+
+      .listTitle {
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

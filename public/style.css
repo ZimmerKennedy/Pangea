@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  background-color: white;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 10px;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
