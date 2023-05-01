@@ -1,18 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import authReducer from '../features/auth/authSlice';
-import maintenanceRequestsReducer from '../features/maintenanceRequest/allMaintenanceRequestSlice';
-import tenantsReducer from '../features/allTenants/allTenantsSlice';
-import unitsReducer from '../features/units/unitsSlice';
-import singleTenantSlice from '../components/SingleTenant/singleTenantSlice' 
-import propertiesReducer from '../features/property/propertySlice'
-import rentsReducer from "../features/rent/rentSlice";
-import singleRentSlice from "../features/rent/singleRentSlice";
+import authReducer from '../auth/authSlice';
+import maintenanceRequestsReducer from '../components/landlordComponents/landlordSlices/allMaintenanceRequestSlice';
+import tenantsReducer from '../components/landlordComponents/landlordSlices/allTenantsSlice';
+import unitsReducer from '../components/landlordComponents/landlordSlices/unitsSlice';
+import propertiesReducer from '../components/landlordComponents/landlordSlices/propertySlice'
+import rentsReducer from "../components/landlordComponents/landlordSlices/rentSlice";
+import singleRentSlice from "../components/landlordComponents/landlordSlices/singleRentSlice";
 // import usersReducer from "../features/users/usersSlice";
-import landlordReducer from '../features/profilePage/landlordProfileSlice';
-import singleTenantReducer from "../features/allTenants/singleTenantSlice";
-import maintenanceRequestReducer from "../features/maintenanceRequest/singleMaintenanceRequestSlice";
-import paymentHistoryReducer from "../features/paymentsLandlord/paymentsSlice"
+import landlordReducer from '../components/landlordComponents/landlordSlices/landlordProfileSlice';
+import singleTenantReducer from "../components/landlordComponents/landlordSlices/singleTenantSlice";
+import maintenanceRequestReducer from "../components/landlordComponents/landlordSlices/singleMaintenanceRequestSlice";
+import paymentHistoryReducer from "../components/landlordComponents/landlordSlices/paymentsSlice"
 
 const store = configureStore({
   reducer: {
@@ -30,11 +29,10 @@ const store = configureStore({
     paymentHistory: paymentHistoryReducer,
     // Unusable Code Fix!!!
     // users: usersReducer,
-    landlordTenant: singleTenantSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
-export * from '../features/auth/authSlice';
-export * from '../features/afterSignup/AddAPropertySlice';
+export * from '../auth/authSlice';
+export * from '../components/landlordComponents/landlordSlices/AddAPropertySlice';

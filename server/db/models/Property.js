@@ -2,24 +2,10 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 
-const images = [
-    'property1.jpg',
-    'property2.jpg',
-    'property3.jpg',
-    'property4.jpg',
-    'property5.jpg',
-    'property6.jpg',
-    'property7.jpg',
-    'property8.jpg',
-    'property9.jpg',
-    ];
 
 
 
-function selectRandomImage() {
-    return images[Math.floor(Math.random() * images.length)];
-  }
-  
+
 const Property = db.define('property',{
     propertyName : {
         type: Sequelize.STRING,
@@ -36,10 +22,6 @@ const Property = db.define('property',{
     landlordId: {
         type: Sequelize.INTEGER,
     },
-    image:{
-            type: Sequelize.STRING,
-            defaultValue: selectRandomImage,
-        },
     pricePurchased: {
         type: Sequelize.INTEGER,
     },

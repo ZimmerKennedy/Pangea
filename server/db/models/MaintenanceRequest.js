@@ -11,10 +11,6 @@ const MaintenanceRequest = db.define('maintenanceRequest', {
     description: {
       type: Sequelize.TEXT,
     },
-    imageUrl: {
-        type: Sequelize.STRING,
-        defaultValue: 'placeholder'
-      },
     creationDate: {
       type: Sequelize.DATE,
     }

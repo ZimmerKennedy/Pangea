@@ -36,8 +36,7 @@ router.post('/', async (req, res, next) => {
         severity: req.body.severity,
         description: req.body.description,
         creationDate: now.toLocaleDateString(),
-        // imageUrl: req.body.imageUrl,
-        // unitId: req.body.unitId
+
       });
   
       const unit = await Unit.findByPk(req.body.unitId);
