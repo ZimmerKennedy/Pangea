@@ -5,5 +5,7 @@ export const defaultTheme = {
     bodyRgba: "252, 246, 244",
     textRgba: "0,0,0",
     hoverText: "#FCF6F4",
+    secondBg: "rgb(247, 247, 240)",
+    thirdBg: "rgb(137, 157, 164)",
   };
   

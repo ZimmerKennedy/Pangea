@@ -3,6 +3,11 @@ import Navbar from "./Navbar.jsx";
 import styled, { keyframes } from "styled-components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AuthForm from "../../auth/AuthFormSignup.js";
+import Home2ndPage from "./Home2ndPage.jsx";
+import Home3rdPage from "./Home3rdPage.jsx";
+import Home4thPage from "./Home4thPage.jsx";
+
+
 const Container = styled.main`
   background: ${(props) => props.theme.body};
   height: 100vh;
@@ -48,14 +53,19 @@ const Home = () => {
   };
 
   return (
+    <>
     <Container>
       <Navbar />
       <Brand>Empowering Rental Harmony</Brand>
       <ScrollDownIcon
         sx={{ width: 50, height: 50, color: "gray" }}
         onClick={handleScrollDown}
-      />
+        />
     </Container>
+    <Home2ndPage />
+    <Home3rdPage />
+    <Home4thPage />
+        </>
   );
 };
 
