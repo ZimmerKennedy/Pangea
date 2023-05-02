@@ -10,9 +10,9 @@ import Paper from "@mui/material/Paper";
 // useSelector and useDispatch are hooks that allow us to access the state and dispatch actions
 import { useSelector, useDispatch } from "react-redux";
 // selectProperties is the function we wrote in our propertySlice.js file that selects the properties from the state
-import { selectProperties } from "../../landlordSlices/propertySlice";
+import { selectProperties } from "../../landlordSlices/fetchAllPropertiesSlice";
 // fetchPropertiesAsync is the function we wrote in our propertySlice.js file that fetches the properties from the API
-import { fetchPropertiesAsync } from "../../landlordSlices/propertySlice";
+import { fetchPropertiesAsync } from "../../landlordSlices/fetchAllPropertiesSlice";
 
 const List = () => {
   // useDispatch is a hook that allows us to dispatch actions
@@ -24,7 +24,7 @@ const List = () => {
 
   // useSelector is a hook that allows us to select data from the state
   const properties = useSelector(selectProperties);
-  console.log(properties);
+
 
   return (
     <TableContainer component={Paper} className="table">

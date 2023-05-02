@@ -1,15 +1,12 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import StoreIcon from "@mui/icons-material/Store";
+
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import AddHomeWorkOutlinedIcon from "@mui/icons-material/AddHomeWorkOutlined";
-import AddHomeOutlinedIcon from "@mui/icons-material/AddHomeOutlined";
+
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import GroupRemoveIcon from "@mui/icons-material/GroupRemove";
-import CoPresentIcon from "@mui/icons-material/CoPresent";
+
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
 import React from "react";

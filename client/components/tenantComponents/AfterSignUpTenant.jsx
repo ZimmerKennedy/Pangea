@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { useDispatch, useSelector} from 'react-redux';
-import { updateTenant} from './tenantSlices/afterTenantSignUpSlice';
+import { updateTenant} from './tenantSlices/updateTenant';
 import { selectMe } from '../../auth/authSlice';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-
+import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
 
 
 const Container = styled.div`
@@ -78,7 +78,6 @@ const StyledButton = styled.button`
 
 const AfterSignUpTenant = () => {
   const me = useSelector(selectMe)
-  console.log(`me`,me)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -121,7 +120,7 @@ const AfterSignUpTenant = () => {
 
   return (
     <Container>
-
+      <TenantSidebar />
     <FormWrapper>
       <StyledForm onSubmit={handleSubmit}>
         <StyledInput

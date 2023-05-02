@@ -6,7 +6,7 @@ export const fetchMaintenanceRequestsAsync = createAsyncThunk('allMaintenanceReq
         const { data } = await axios.get(`http://localhost:8080/api/maintenanceRequest`);
         return data;
     } catch (err){
-        console.log(`error in workOrderThunk`,err)
+        console.error(err);
     }
 })
 
@@ -14,7 +14,7 @@ export const deleteMaintenanceRequestAsync = createAsyncThunk('deleteMaintenance
     try{
         await axios.delete(`http://localhost:8080/api/maintenanceRequest/${id}`);
     } catch (err){
-        console.log(`error in deleteMaintenanceRequest Thunk`, err)
+        console.error(err);
     }
 })
 const maintenaceRequestsSlice = createSlice({

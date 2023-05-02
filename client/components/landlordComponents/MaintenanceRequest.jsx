@@ -4,7 +4,7 @@ import {
   fetchMaintenanceRequestsAsync,
   selectMaintenanceRequests,
   deleteMaintenanceRequestAsync
-} from "./landlordSlices/allMaintenanceRequestSlice";
+} from "./landlordSlices/fetchAllMaintenanceRequestsSlice";
 import { Link, useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";

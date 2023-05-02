@@ -8,10 +8,10 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTenants, fetchTenantsAsync } from "../../landlordSlices/allTenantsSlice";
-import { selectMaintenanceRequests, fetchMaintenanceRequestsAsync } from "../../landlordSlices/allMaintenanceRequestSlice";
-import { selectPaymentHistory, fetchPaymentHistory } from "../../landlordSlices/paymentsSlice";
-import { selectProperties, fetchPropertiesAsync } from "../../landlordSlices/propertySlice";
+import { selectTenants, fetchTenantsAsync } from "../../landlordSlices/fetchAllTenantsSlice";
+import { selectMaintenanceRequests, fetchMaintenanceRequestsAsync } from "../../landlordSlices/fetchAllMaintenanceRequestsSlice";
+import { selectPaymentHistory, fetchPaymentHistory } from "../../landlordSlices/fetchAllPaymentsSlice";
+import { selectProperties, fetchPropertiesAsync } from "../../landlordSlices/fetchAllPropertiesSlice";
 const Widget = ({ type }) => {
   const [amount, setAmount] = useState(null);
   const [diff, setDiff] = useState(null);

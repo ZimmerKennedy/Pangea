@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { createMaintenanceRequest } from "./tenantSlices/createMaintenanceRequestSlice";
-import { fetchUnitsAsync, selectUnits } from "../landlordComponents/landlordSlices/unitsSlice";
+import { fetchUnitsAsync, selectUnits } from "../landlordComponents/landlordSlices/fetchAllUnitsSlice";
 import { useNavigate } from "react-router-dom";
 import MaintenanceReq from "./MaintenanceReq.jsx";
 

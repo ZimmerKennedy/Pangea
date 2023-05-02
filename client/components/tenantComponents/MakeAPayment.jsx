@@ -5,10 +5,10 @@ import styled from "styled-components";
 import {
   selectTenant,
   fetchTenantAsync,
-} from "../landlordComponents/landlordSlices/singleTenantSlice";
+} from "../landlordComponents/landlordSlices/fetchSingleTenantSlice";
 import { selectMe } from "../../auth/authSlice";
 import { useNavigate } from "react-router-dom";
-
+import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
 
 const Background = styled.div`
   display: flex;
@@ -118,7 +118,7 @@ const MakeAPayment = () => {
   useEffect(() => {
     dispatch(fetchTenantAsync(thisUser.id));
   }, [dispatch]);
-  console.log(`tenant`, tenant);
+
 
   const navigate = useNavigate();
 const handleNav = () =>{
@@ -142,6 +142,7 @@ const handleNav = () =>{
 
   return (
     <Background>
+      <TenantSidebar/>
       <Section>
         <Title1>
           {greeting}, {tenant.name}

@@ -4,10 +4,10 @@ import axios from "axios";
 export const fetchTenantAsync = createAsyncThunk('tenant', async(id) =>{
     try{
         const { data } = await axios.get(`http://localhost:8080/api/tenant/${id}`);
-        console.log("DATA" + data)
+
         return data
     } catch (err){
-        console.log(`error in tenantThunk`,err)
+        console.error(`error in tenantThunk`,err)
     }
 })
 

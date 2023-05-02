@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTenantsAsync, selectTenants, deleteTenantAsync } from "./landlordSlices/allTenantsSlice";
-import { fetchUnitsAsync, selectUnits } from "./landlordSlices/unitsSlice";
+import { fetchTenantsAsync, selectTenants, deleteTenantAsync } from "./landlordSlices/fetchAllTenantsSlice";
+import { fetchUnitsAsync, selectUnits } from "./landlordSlices/fetchAllUnitsSlice";
 import styled, { keyframes } from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import {
@@ -94,8 +94,7 @@ const Deletebtn = styled.span`
 
   const tenants = useSelector(selectTenants);
   const units = useSelector(selectUnits);
-  console.log(`tenants`, tenants);
-  console.log(`units`, units);
+
   useEffect(() => {
     dispatch(fetchTenantsAsync());
     dispatch(fetchUnitsAsync());

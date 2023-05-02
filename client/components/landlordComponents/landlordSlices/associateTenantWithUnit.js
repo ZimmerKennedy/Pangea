@@ -4,7 +4,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const associateTenantWithUnit = createAsyncThunk(
   'tenant/associateTenantWithUnit',
   async ({ unitId, tenantId }) => {
-    console.log(`unitId`,unitId)
     const response = await axios.post(
       `/api/associateTenantWithUnit`,
       {

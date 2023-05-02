@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePropertyAsync, fetchPropertiesAsync, selectProperties } from "./landlordSlices/propertySlice.js";
+import { deletePropertyAsync, fetchPropertiesAsync, selectProperties } from "./landlordSlices/fetchAllPropertiesSlice.js";
 import styled, { keyframes } from "styled-components";
 
 import Sidebar from "../sidebar/Sidebar.jsx";

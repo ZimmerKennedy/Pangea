@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import styled, { keyframes } from "styled-components";
 import Sidebar from '../sidebar/Sidebar.jsx'
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPaymentHistory } from './landlordSlices/paymentsSlice.js';
+import { fetchPaymentHistory } from './landlordSlices/fetchAllPaymentsSlice.js';
 import {FaHome} from "react-icons/fa";
 const Container = styled.div`
   display: flex;
@@ -83,7 +83,6 @@ const Button = styled.button`
 const Payments = () => {
   const dispatch = useDispatch();
   const paymentHistory = useSelector(state => state.paymentHistory);
-    console.log(`payments`,paymentHistory.paymentHistory)
   useEffect(() => {
     dispatch(fetchPaymentHistory());
   }, [dispatch]);

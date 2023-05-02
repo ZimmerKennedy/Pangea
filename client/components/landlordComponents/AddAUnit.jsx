@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createUnit } from './landlordSlices/AddAUnitSlice';
+import { createUnit } from './landlordSlices/createUnit';
 import styled from "styled-components";
-import { selectProperties, fetchPropertiesAsync } from './landlordSlices/propertySlice';
+import { selectProperties, fetchPropertiesAsync } from './landlordSlices/fetchAllPropertiesSlice';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../sidebar/Sidebar.jsx';
 
@@ -81,12 +81,12 @@ const UnitForm = () => {
 
   useEffect(() => {
     dispatch(fetchPropertiesAsync()).then(() => {
-      console.log(`i fired off`, properties);
+
     });
   }, [dispatch]);
 
   const properties = useSelector(selectProperties);
-  console.log(`properties`, properties)
+
 
   const handleChange = (event) => {
     setUnit({ ...unit, [event.target.name]: event.target.value });

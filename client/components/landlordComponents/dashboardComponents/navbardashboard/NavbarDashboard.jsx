@@ -8,7 +8,7 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMe } from "../../../../auth/authSlice";
-import { fetchlandlordAsync, selectLandlord } from "../../landlordSlices/landlordProfileSlice";
+import { fetchlandlordAsync, selectLandlord } from "../../landlordSlices/fetchLandlordSlice";
 
 const NavbarDashboard = () => {
 

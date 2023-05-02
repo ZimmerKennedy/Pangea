@@ -9,10 +9,10 @@ const initialState = {
 export const fetchlandlordAsync = createAsyncThunk('landlord', async(id) =>{
     try{
       const { data } = await axios.get(`http://localhost:8080/api/landlords/${id}`);
-      console.log(`data`,data)
+
       return data
     } catch (err){
-      console.log(`error in landlord Thunk`,err)
+      console.error(`error in landlord Thunk`,err)
     }
   });
 
@@ -22,7 +22,6 @@ export const fetchlandlordAsync = createAsyncThunk('landlord', async(id) =>{
     reducers: {},
     extraReducers:(builder) =>{
         builder.addCase(fetchlandlordAsync.fulfilled,(state,action) =>{
-            console.log(`action`, action)
             return action.payload;
         })
     }

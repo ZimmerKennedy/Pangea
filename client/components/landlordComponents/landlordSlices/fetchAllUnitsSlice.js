@@ -7,7 +7,7 @@ export const fetchUnitsAsync = createAsyncThunk('units', async() =>{
     const { data } = await axios.get(`http://localhost:8080/api/unit`);
     return data
   } catch (err){
-    console.log(`error in unitsThunk`,err)
+    console.error(`error in unitsThunk`,err)
   }
 });
 
@@ -16,7 +16,7 @@ export const deleteUnitAsync = createAsyncThunk('deleteUnit',async(unitId) =>{
       const { data } = await axios.delete(`http://localhost:8080/api/unit/${unitId}`)
       return data;
   } catch (err){
-    console.log(`error in deleteUnitAsync`, err)
+    console.error(`error in deleteUnitAsync`, err)
   }
 })
 

@@ -5,7 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import React, { useEffect } from "react";
-import { fetchPaymentHistory } from "../../landlordSlices/paymentsSlice";
+import { fetchPaymentHistory } from "../../landlordSlices/fetchAllPaymentsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Featured = () => {
@@ -14,7 +14,7 @@ const Featured = () => {
   useEffect(() => {
     dispatch(fetchPaymentHistory());
   }, [dispatch]);
-  console.log(`paymentHistory`, paymentHistory.paymentHistory);
+
 
   const totalRentAmount = paymentHistory.paymentHistory.reduce(
     (total, payment) => {
@@ -25,7 +25,7 @@ const Featured = () => {
 
   const targetAmount = 100000;
   const percentage = (totalRentAmount / targetAmount) * 100;
-  console.log(`rentamount`, totalRentAmount);
+
 
   const lastWeekAmount = paymentHistory.paymentHistory
   .filter(payment => {

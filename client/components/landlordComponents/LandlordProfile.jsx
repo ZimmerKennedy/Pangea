@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchlandlordAsync, selectLandlord } from "./landlordSlices/landlordProfileSlice";
+import { fetchlandlordAsync, selectLandlord } from "./landlordSlices/fetchLandlordSlice";
 import { selectMe } from "../../auth/authSlice";
 import styled, { keyframes } from "styled-components";
 import {
@@ -96,7 +96,7 @@ const LandlordProfile = () => {
   const dispatch = useDispatch();
   const me = useSelector(selectMe);
   const userLandlord = useSelector(selectLandlord);
-  console.log(`userLandlord`, userLandlord);
+
 
   useEffect(() => {
     dispatch(fetchlandlordAsync(me.id));

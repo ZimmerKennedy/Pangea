@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createProperty, getLandlordId } from "./landlordSlices/AddAPropertySlice";
+import { createProperty, getLandlordId } from "./landlordSlices/createProperty";
 import { selectMe } from "../../auth/authSlice";
 import styled from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";

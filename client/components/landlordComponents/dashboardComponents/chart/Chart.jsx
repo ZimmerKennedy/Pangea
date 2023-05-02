@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { fetchPaymentHistory, selectPaymentHistory } from "../../landlordSlices/paymentsSlice";
+import { fetchPaymentHistory, selectPaymentHistory } from "../../landlordSlices/fetchAllPaymentsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 
@@ -33,7 +33,7 @@ const Chart = ({ aspect, title }) => {
   useEffect(() => {
     dispatch(fetchPaymentHistory());
   }, [dispatch]);
-  console.log(`paymentHistory from chart.jsx`, paymentHistory);
+
 
  useEffect(() => {
     const updatedData = data.map(d => ({...d}));
@@ -45,7 +45,7 @@ const Chart = ({ aspect, title }) => {
     setNewData(updatedData);
   }, [paymentHistory]);
 
-  console.log(`newDataaaa`, newData);
+
 
   return (
     <div className="chart">

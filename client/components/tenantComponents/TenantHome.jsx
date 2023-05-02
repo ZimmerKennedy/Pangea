@@ -8,8 +8,8 @@ import { selectMe } from "../../auth/authSlice";
 import {
   fetchTenantAsync,
   selectTenant,
-} from "../landlordComponents/landlordSlices/singleTenantSlice";
-
+} from "../landlordComponents/landlordSlices/fetchSingleTenantSlice";
+import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
 
 
 
@@ -104,25 +104,17 @@ const TenantHome = () => {
   const [rent, setRent] = useState(100);
   const thisUser = useSelector(selectMe);
   const thisTenant = useSelector(selectTenant);
-  console.log(`thisUser`, thisUser);
-  console.log(`thisTenant`, thisTenant);
-  console.log(thisTenant);
   useEffect(() => {
     dispatch(fetchTenantAsync(thisUser.id));
   }, []);
 
-  // function increaseRentDueClicked() {
-  //     setRentDue(rentDue + 1000)
-  // }
-  // function increaseRentClicked() {
-  //     setRent(rent + 1000)
-  // }
+
 
   const logoutAndRedirectHome = () => {
     dispatch(logout());
     navigate("/login");
   };
-  //rentDue turns green if the tenant is caught up on rent, aka. $0.
+
 
   const [greeting, setGreeting] = useState("");
 
@@ -139,6 +131,7 @@ const TenantHome = () => {
 
   return (
     <Background>
+      <TenantSidebar />
       <Section>
         <Title>
           {greeting}, {thisTenant.name}

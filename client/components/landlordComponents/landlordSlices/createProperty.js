@@ -9,6 +9,7 @@ export const getLandlordId = (userId) => async dispatch => {
       const landlordResponse = await axios.get(`api/landlords?userId=${userId}`);
       return landlordResponse.data[0].id;
     } catch (error) {
+      console.error(error);
       return error;
     }
   };

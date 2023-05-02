@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRentAsync } from "./landlordSlices/rentSlice";
-import { selectTenants, fetchTenantsAsync } from "./landlordSlices/allTenantsSlice";
+import { addRentAsync } from "./landlordSlices/fetchAllRentsSlice";
+import { selectTenants, fetchTenantsAsync } from "./landlordSlices/fetchAllTenantsSlice";
 import styled from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";
 
@@ -70,7 +70,7 @@ const AddRent = () => {
   const dispatch = useDispatch();
   const tenants = useSelector(selectTenants)
 
-  console.log(`tenants`,tenants)
+
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(addRentAsync({ rentAmount : price, tenantId }));

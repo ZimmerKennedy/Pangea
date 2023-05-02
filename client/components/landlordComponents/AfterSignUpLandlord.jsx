@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateLandlord } from './landlordSlices/afterSignUpLandlordSlice';
+import { updateLandlord } from './landlordSlices/updateLandlord';
 import { selectMe } from "../../auth/authSlice";
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -65,7 +65,7 @@ cursor: pointer;
 
 const UpdateLandlordForm = () => {
   const me = useSelector(selectMe)
-  console.log(`me`, me)
+
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');

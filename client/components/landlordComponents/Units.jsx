@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUnitAsync, fetchUnitsAsync, selectUnits } from "./landlordSlices/unitsSlice";
+import { deleteUnitAsync, fetchUnitsAsync, selectUnits } from "./landlordSlices/fetchAllUnitsSlice";
 import styled, { keyframes } from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import {FaHome} from "react-icons/fa";

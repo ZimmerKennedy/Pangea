@@ -4,24 +4,24 @@ import {
   selectTenants,
   fetchTenantsAsync,
   deleteTenantAsync,
-} from "./landlordSlices/allTenantsSlice";
+} from "./landlordSlices/fetchAllTenantsSlice";
 import {
   selectProperties,
   fetchPropertiesAsync,
   deletePropertyAsync,
-} from "./landlordSlices/propertySlice";
+} from "./landlordSlices/fetchAllPropertiesSlice";
 import {
   selectUnits,
   fetchUnitsAsync,
   deleteUnitAsync,
-} from "./landlordSlices/unitsSlice";
+} from "./landlordSlices/fetchAllUnitsSlice";
 import styled from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import {
   fetchMaintenanceRequestsAsync,
   selectMaintenanceRequests,
   deleteMaintenanceRequestAsync,
-} from "./landlordSlices/allMaintenanceRequestSlice";
+} from "./landlordSlices/fetchAllMaintenanceRequestsSlice";
 
 const Container = styled.div`
 display:flex;

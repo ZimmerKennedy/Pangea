@@ -5,10 +5,9 @@ import axios from "axios";
 export const fetchSingleMaintenanceRequestAsync =  createAsyncThunk('singleMaintenanceRequest', async (id) =>{
     try{
         const { data } = await axios.get(`http://localhost:8080/api/maintenanceRequest/${id}`);
-        console.log(`data from workOrders`, data)
         return data
     } catch (err){
-        console.log(`error in singleWorkOrderThunk`,err)
+        console.error(`error in singleWorkOrderThunk`,err)
     }
 })
 

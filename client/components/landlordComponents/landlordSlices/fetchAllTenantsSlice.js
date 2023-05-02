@@ -6,7 +6,7 @@ export const fetchTenantsAsync = createAsyncThunk('tenants', async() =>{
         const { data } = await axios.get(`http://localhost:8080/api/tenant`);
         return data
     } catch (err){
-        console.log(`error in tenantsThunk`, err)
+        console.error(`error in tenantsThunk`, err)
     }
 })
 
@@ -17,13 +17,11 @@ export const deleteTenantAsync = createAsyncThunk(
         const { data } = await axios.delete(`http://localhost:8080/api/tenant/${tenantId}`);
         return data;
       } catch (err) {
-        console.log(`Error in deleteTenantAsync`, err);
+        console.error(`Error in deleteTenantAsync`, err);
       }
     }
   );
   
-  
-
 const tenantsSlice = createSlice({
     name: 'tenants',
     initialState: [],

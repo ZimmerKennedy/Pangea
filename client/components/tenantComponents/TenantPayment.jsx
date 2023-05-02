@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectTenant,
   fetchTenantAsync,
-} from "../landlordComponents/landlordSlices/singleTenantSlice";
+} from "../landlordComponents/landlordSlices/fetchSingleTenantSlice";
 import { selectMe } from "../../auth/authSlice";
 import { submitPayment } from "./tenantSlices/tenantPaymentSlice";
 import styled from "styled-components";
-
+import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
 const Background = styled.div`
 display: flex;
 flex-direction: row;
@@ -21,7 +21,6 @@ margin-left: 15vw;
 background-size: cover;
 background-position: center;
 justify-content: center;
-
 `;
 const FormContainer = styled.div`
   display: flex;
@@ -108,16 +107,11 @@ const TenantPayment = () => {
   useEffect(() => {
     dispatch(fetchTenantAsync(thisUser.id));
   }, [dispatch]);
-  console.log(`thisUser`, thisUser);
-  console.log(`thisTenant`, thisTenant);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // Handle the credit card payment process here
-      // ...
-      // Once the payment process is successful, submit the payment to the backend
-      console.log(`helllooooo`)
       await dispatch(
         submitPayment(thisTenant.id, paymentDate, thisTenant.rentAmount, thisTenant.name, thisTenant.unitIdToAssociateTenant)
       );
@@ -129,6 +123,7 @@ const TenantPayment = () => {
 
   return (
     <Background>
+      <TenantSidebar />
       <FormContainer>
        
           <Form>

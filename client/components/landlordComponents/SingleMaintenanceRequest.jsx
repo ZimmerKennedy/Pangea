@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {
   fetchSingleMaintenanceRequestAsync,
   selectMaintenanceRequest,
-} from "./landlordSlices/singleMaintenanceRequestSlice";
+} from "./landlordSlices/fetchSingleMaintenanceRequestSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -73,7 +73,7 @@ const dispatch = useDispatch();
 useEffect(() =>{
   dispatch(fetchSingleMaintenanceRequestAsync(id))
 },[dispatch]);
-console.log(`maintenanceRequest`,maintenanceRequest)
+
 return (
   <WorkOrdersContainer>
     <Sidebar />

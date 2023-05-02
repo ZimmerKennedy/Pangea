@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
-
+import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
 const Div = styled.div`
 display: flex;
 flex-direction: column;
@@ -62,9 +62,6 @@ const MaintenanceReq = () => {
     const navigate = useNavigate();
     const [makeEmergencyReq, setMakeEmergencyReq] = useState(false)
 
-    useEffect(() => {
-        console.log("Make Em Req?", makeEmergencyReq)
-    })
 
     function detectMakeEmReqButtonClick() {
         makeEmergencyReq ? setMakeEmergencyReq(false) : setMakeEmergencyReq(true)
@@ -76,6 +73,7 @@ const MaintenanceReq = () => {
     }
     return (
         <Div>
+            <TenantSidebar />
             <Title>Maintenance Request</Title>
             <EmInfoBox>
                 Examples of emergency maintenance situations include: Burst Pipes, Gas Leaks,

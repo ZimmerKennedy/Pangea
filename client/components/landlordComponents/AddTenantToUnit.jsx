@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { selectUnits, fetchUnitsAsync } from "./landlordSlices/unitsSlice";
+import { selectUnits, fetchUnitsAsync } from "./landlordSlices/fetchAllUnitsSlice";
 import {
   selectTenants,
   fetchTenantsAsync,
-} from "./landlordSlices/allTenantsSlice";
-import { associateTenantWithUnit } from "./landlordSlices/AddTenantToUnitSlice";
+} from "./landlordSlices/fetchAllTenantsSlice";
+import { associateTenantWithUnit } from "./landlordSlices/associateTenantWithUnit";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar.jsx";
 

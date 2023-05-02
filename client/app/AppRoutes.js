@@ -36,7 +36,7 @@ import {
 
 import AuthForm from "../auth/AuthForm";
 import AuthFormSignup from "../auth/AuthFormSignup";
-import Home from "../components/Home.jsx";
+import Home from "../components/Homepage/Home.jsx";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
