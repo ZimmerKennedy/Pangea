@@ -13,7 +13,7 @@ const Container = styled.nav`
 const RightDiv = styled.div`
   display: flex;
   flex-direction: row;
-  font-family: "Bruno Ace SC", cursive;
+  font-family: ${(props) => props.theme.fontFamily};
   font-size: 1rem;
   margin: auto;
   & > div {
@@ -33,7 +33,7 @@ const RightDiv = styled.div`
 const Brand = styled.div`
   font-size: 2rem;
   font-weight: 800;
-  font-family: "Bruno Ace SC", cursive;
+  font-family: ${(props) => props.theme.fontFamily};
   cursor: pointer;
 `;
 const Navbar = () => {
