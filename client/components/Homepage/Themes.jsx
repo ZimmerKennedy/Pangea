@@ -7,6 +7,6 @@ export const defaultTheme = {
     hoverText: "#FCF6F4",
     secondBg: "rgb(247, 247, 240)",
     thirdBg: "rgb(137, 157, 164)",
-    fourthBg: "rgb(196, 195, 184)",
+    fourthBg: "rgb(216, 215, 204)",
   };
   

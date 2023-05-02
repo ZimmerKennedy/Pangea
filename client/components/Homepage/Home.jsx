@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "./Navbar.jsx";
 import styled, { keyframes } from "styled-components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AuthForm from "../../auth/AuthFormSignup.js";
 import Home2ndPage from "./Home2ndPage.jsx";
 import Home3rdPage from "./Home3rdPage.jsx";
 import Home4thPage from "./Home4thPage.jsx";
+import Footer from "./Footer.jsx";
 
 
 const Container = styled.main`
@@ -65,6 +65,7 @@ const Home = () => {
     <Home2ndPage />
     <Home3rdPage />
     <Home4thPage />
+    <Footer />
         </>
   );
 };

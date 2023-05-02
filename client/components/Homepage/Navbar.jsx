@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styled from "styled-components";
 import HamburgerIcon from "./HamburgerIcon.jsx";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const RightDiv = styled.div`
     background-color: transparent;
     transition: background-color 1s ease, color 1s ease;
   }
-  
+
   & > div:hover {
     background-color: ${(props) => props.theme.text};
     color: ${(props) => props.theme.hoverText};
@@ -35,11 +35,11 @@ const Brand = styled.div`
   font-weight: 800;
   font-family: ${(props) => props.theme.fontFamily};
   cursor: pointer;
+
 `;
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -47,9 +47,10 @@ const Navbar = () => {
 
   return (
     <Container>
-      <HamburgerIcon handleClick={handleClick} isOpen={isOpen}/>
+      <HamburgerIcon handleClick={handleClick} isOpen={isOpen} />
       <Brand onClick={() => navigate("/")}>Rentility</Brand>
       <RightDiv>
+        <div onClick={() => navigate("/signup")}>Apply Now</div>
         <div onClick={() => navigate("/signup")}>Tenants</div>
         <div onClick={() => navigate("/signup")}>Landlord</div>
       </RightDiv>
