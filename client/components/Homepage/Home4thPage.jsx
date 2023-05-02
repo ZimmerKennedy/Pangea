@@ -16,31 +16,31 @@ const GridContainer = styled.div`
 `;
 
 const LeftGrid = styled.div`
-  background: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.fourthBg};
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.thirdBg};
+  border: 1px solid ${(props) => props.theme.text};
   overflow: hidden;
   margin: 10px;
 `;
 
 const MiddleGrid = styled.div`
-  background: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.fourthBg};
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.thirdBg};
+  border: 1px solid ${(props) => props.theme.text};
   overflow: hidden;
   margin: 10px;
 `;
 const RightGrid = styled.div`
-  background: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.fourthBg};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.thirdBg};
+  border: 1px solid ${(props) => props.theme.text};
   margin: 10px;
 `;
 
@@ -85,32 +85,21 @@ const Home3rdPage = () => {
           <Box>
             <Brand>RENTALITY</Brand>
             <Vision>
-              At Rentality, our vision is to revolutionize the property
-              management landscape by empowering landlords and fostering
-              transparent relationships with their tenants.
+              Rentality revolutionizes the landlord-tenant experience, fostering
+              a harmonious relationship that elevates the rental journey.
             </Vision>
-            <Vision>
-              We strive to create a seamless and intuitive platform that
-              simplifies property management, enhances communication, and
-              optimizes tenant experiences, fostering trust and satisfaction for
-              all parties involved.
-            </Vision>
+
             <Button>THE VISION</Button>
           </Box>
         </LeftGrid>
         <MiddleGrid>
           <Box>
             <Brand>RENTALITY</Brand>
+
             <Vision>
-              At Rentality, our vision is to revolutionize the property
-              management landscape by empowering landlords and fostering
-              transparent relationships with their tenants.
-            </Vision>
-            <Vision>
-              We strive to create a seamless and intuitive platform that
-              simplifies property management, enhances communication, and
-              optimizes tenant experiences, fostering trust and satisfaction for
-              all parties involved.
+              Experience Rentality's efficient property management solution,
+              covering tenant onboarding, communication, rent collection, and
+              maintenance requests.
             </Vision>
             <Button>THE VISION</Button>
           </Box>
@@ -119,15 +108,10 @@ const Home3rdPage = () => {
           <Box>
             <Brand>RENTALITY</Brand>
             <Vision>
-              At Rentality, our vision is to revolutionize the property
-              management landscape by empowering landlords and fostering
-              transparent relationships with their tenants.
-            </Vision>
-            <Vision>
-              We strive to create a seamless and intuitive platform that
-              simplifies property management, enhances communication, and
-              optimizes tenant experiences, fostering trust and satisfaction for
-              all parties involved.
+              join satisfied landlords, optimize your rental properties, and
+              build a thriving community with trust, transparency, and
+              convenience, as Rentality guides you to a successful property
+              management future.
             </Vision>
             <Button>THE VISION</Button>
           </Box>
@@ -138,10 +122,3 @@ const Home3rdPage = () => {
 };
 
 export default Home3rdPage;
-
-// Rentality revolutionizes the landlord-tenant experience,
-// fostering a harmonious relationship that elevates the rental journey.
-
-// Experience Rentality's efficient property management solution, covering tenant onboarding, communication, rent collection, and maintenance requests.
-
-// join satisfied landlords, optimize your rental properties, and build a thriving community with trust, transparency, and convenience, as Rentality guides you to a successful property management future.

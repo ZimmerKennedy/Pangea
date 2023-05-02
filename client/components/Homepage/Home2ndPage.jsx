@@ -4,7 +4,8 @@ import { DoubleQuote } from '../assets/svgs/Svgs.jsx'
 
 const Container = styled.main`
 min-height: 100vh;
-background: ${(props) => props.theme.secondBg};
+background: ${(props) => props.theme.fourthBg};
+color: ${(props) => props.theme.text};
 display: flex;
 flex-direction: column;
 justify-content: center;
