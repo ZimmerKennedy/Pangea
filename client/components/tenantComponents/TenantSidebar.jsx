@@ -51,12 +51,6 @@ const Sidebar = () => {
               <span>Update Account</span>
             </li>
           </Link>
-          <Link to="/makeapayment" style={{ textDecoration: "none" }}>
-            <li>
-              <AddHomeWorkOutlinedIcon className="icon" />
-              <span>Manage Payments</span>
-            </li>
-          </Link>
           <Link to="/create-maintenance-request" style={{ textDecoration: "none" }}>
             <li>
               <PsychologyOutlinedIcon className="icon" />

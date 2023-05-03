@@ -88,28 +88,35 @@ const DueAmount = styled.div`
   font-size: 1.5rem;
 `;
 
-//dummy daters
-const tenantName = "Pepe Silvia";
-const tenantUnit = "202";
+const Button = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #1e56a0;
+  opacity: 75%;
+  color: #fff;
+  border: none;
+  width: 20vw;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  &:hover {
+    background-color: #163172;
+    color: #f6f6f6;
+  }
+`;
+
+
 
 const TenantHome = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [rentDue, setRentDue] = useState(0);
-  const [rent, setRent] = useState(100);
+
   const thisUser = useSelector(selectMe);
   const thisTenant = useSelector(selectTenant);
   useEffect(() => {
     dispatch(fetchTenantAsync(thisUser.id));
   }, []);
-
-
-
-  const logoutAndRedirectHome = () => {
-    dispatch(logout());
-    navigate("/login");
-  };
-
 
   const [greeting, setGreeting] = useState("");
 
@@ -123,6 +130,10 @@ const TenantHome = () => {
       setGreeting("Good evening");
     }
   }, []);
+
+  const handleNav = () =>{
+    navigate('/payment')
+}
 
   return (
     <GridContainer>
@@ -149,7 +160,9 @@ const TenantHome = () => {
               ${rentDue}
             </DueAmount>
           </DueRentBox>
-        </RentBox>       
+        </RentBox>
+        <Button onClick={handleNav}>Pay Rent Now</Button>       
+        <Button onClick={() => navigate("/create-maintenance-request")}>Create Work Order</Button>       
       </Section>
     </Container>
         </GridContainer>

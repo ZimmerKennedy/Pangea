@@ -6,7 +6,6 @@ import { selectMe } from "../auth/authSlice";
 
 import {
   TenantHome,
-  MakeAPayment,
   AfterSignUpTenant,
   CreateMaintenanceRequest,
   TenantPayment,
@@ -53,7 +52,6 @@ const AppRoutes = () => {
         userLoggedIn.role === "tenant" ? (
           <Routes>
             <Route path="/tenanthome" element={<TenantHome />} />
-            <Route path="/makeapayment" element={<MakeAPayment />} />
             <Route path="/signup-tenant" element={<AfterSignUpTenant />} />
             <Route path="/create-maintenance-request" element={<CreateMaintenanceRequest />}/>
             <Route path="/*" element={<TenantHome />} />

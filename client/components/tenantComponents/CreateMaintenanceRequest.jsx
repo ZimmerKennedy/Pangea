@@ -36,16 +36,7 @@ const FormWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    width: 0;
-    background-color: transparent;
-  }
 
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
 `;
 
 const Form = styled.form`
