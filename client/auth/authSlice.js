@@ -47,43 +47,7 @@ export const authenticate = createAsyncThunk(
     }
   }
 );
-// export const me = createAsyncThunk('auth/me', async () => {
-//   const token = window.localStorage.getItem(TOKEN);
-//   if (!token) {
-//     return {};
-//   }
-//   try {
-//     const res = await axios.get('/auth/me', {
-//       headers: {
-//         authorization: token,
-//       },
-//     });
-//     return res.data;
-//   } catch (err) {
-//     return {};
-//   }
-// });
 
-// export const authenticate = createAsyncThunk(
-//   'auth/authenticate',
-//   async ({ username, password, role, method }, thunkAPI) => {
-//     try {
-//       const res = await axios.post(`/auth/${method}`, { username, password, role });
-//       window.localStorage.setItem(TOKEN, res.data.token);
-//       return thunkAPI.dispatch(me());
-//     } catch (err) {
-//       if (err.response.data) {
-//         return thunkAPI.rejectWithValue(err.response.data);
-//       } else {
-//         return 'There was an issue with your request.';
-//       }
-//     }
-//   }
-// );
-
-/*
-  SLICE
-*/
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
