@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Sidebar from "../../sidebar/Sidebar.jsx";
 import "./dashboard.scss";
 import Widget from "./widget/Widget.jsx";
@@ -9,13 +8,12 @@ import Table from "./table/Table.jsx";
 import NavbarDashboard from "./navbardashboard/NavbarDashboard.jsx"; 
 
 
-const Dashboard = (props) => {
-  const username = useSelector((state) => state.auth.me.username);
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  
+const Dashboard = () => {
+
   return (
-    <div className="dashboard">
+    <div id="grid__dashboard">
       <Sidebar />
+    <div className="dashboard">
       <div className="dashboardContainer">
         <NavbarDashboard />
         <div className="widgets">
@@ -33,6 +31,7 @@ const Dashboard = (props) => {
           <Table />
         </div>
       </div>
+    </div>
     </div>
   );
 };

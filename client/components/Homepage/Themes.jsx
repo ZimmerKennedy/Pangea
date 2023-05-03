@@ -8,5 +8,8 @@ export const defaultTheme = {
     secondBg: "rgb(247, 247, 240)",
     thirdBg: "rgb(137, 157, 164)",
     fourthBg: "rgb(216, 215, 204)",
+    highlight: "#1E56A0"
   };
   
+
+  // #1E56A0

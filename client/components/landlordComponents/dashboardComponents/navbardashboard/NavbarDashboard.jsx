@@ -5,20 +5,22 @@ import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlin
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { selectMe } from "../../../../auth/authSlice";
-import { fetchlandlordAsync, selectLandlord } from "../../landlordSlices/fetchLandlordSlice";
+import {
+  fetchlandlordAsync,
+  selectLandlord,
+} from "../../landlordSlices/fetchLandlordSlice";
 
 const NavbarDashboard = () => {
-
-  const thisUser = useSelector(selectMe)
-  const thisLandlord = useSelector(selectLandlord)
+  const thisUser = useSelector(selectMe);
+  const thisLandlord = useSelector(selectLandlord);
   const dispatch = useDispatch();
-  useEffect(() =>{
-    dispatch(fetchlandlordAsync(thisUser.id))
-  },[])
-  
+  useEffect(() => {
+    dispatch(fetchlandlordAsync(thisUser.id));
+  }, []);
+
   const [greeting, setGreeting] = useState("");
 
   useEffect(() => {
@@ -35,36 +37,7 @@ const NavbarDashboard = () => {
     <div className="navbar">
       <div className="wrapper">
         <div className="landlordName">
-          {/* <input type="text" placeholder="Search..." />
-          <SearchOutlinedIcon /> */}
           {greeting}, {thisLandlord.name}
-        </div>
-        <div className="items">
-          <div className="item">
-            <LanguageOutlinedIcon className="icon" />
-            English
-          </div>
-          <div className="item">
-            <FullscreenExitOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
-            <NotificationsNoneOutlinedIcon className="icon" />
-            <div className="counter">1</div>
-          </div>
-          <div className="item">
-            <ChatBubbleOutlineOutlinedIcon className="icon" />
-            <div className="counter">2</div>
-          </div>
-          <div className="item">
-            <ListOutlinedIcon className="icon" />
-          </div>
-          <div className="item">
-            <img
-              src="https://images.pexels.com/photos/905248/pexels-photo-905248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt=""
-              className="avatar"
-            />
-          </div>
         </div>
       </div>
     </div>

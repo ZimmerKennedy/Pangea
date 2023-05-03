@@ -6,34 +6,40 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Sidebar from '../sidebar/Sidebar.jsx';
 
-const Container = styled.div`
-display:flex;
-height: 98vh;
-margin-left: 17vw;
-width: 83vw;
-justify-content: center;
-flex-direction: row
-background: rgb(246,246,246);
-background: linear-gradient(90deg, rgba(246,246,246,1) 0%, rgba(214,228,240,1) 44%, rgba(30,86,160,1) 79%, rgba(22,49,114,1) 99%);
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
+`;
 
-;`
+const Container = styled.div`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const StyledForm = styled.form`
 display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: auto;
-height:auto;
-margin: 10%;
-align-self: center;
-background-color: #fff;
-box-shadow: 0px 0px 10px #1E56A0;
-border-radius: 1rem;
-padding: 5rem;
-&:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-}
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin: 10%;
+  align-self: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #1e56a0;
+  border-radius: 1rem;
+  padding: 5rem;
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  }
 `;
 
 const StyledInput = styled.input`
@@ -75,9 +81,6 @@ const UpdateLandlordForm = () => {
   const navigate = useNavigate();
 
 
-  // const [showAddAProperty, setShowAddAProperty] = useState(false);
-
-
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
@@ -109,12 +112,11 @@ const UpdateLandlordForm = () => {
     navigate('/dashboard')
   };
 
-  // const handleClick = () => {
-  //   setShowAddAProperty(true);
-  // };
   return (
-    <Container>
+    <GridContainer> 
+
       <Sidebar />
+    <Container>
       <StyledForm onSubmit={handleSubmit}>
         <StyledInput
           type="text"
@@ -122,40 +124,39 @@ const UpdateLandlordForm = () => {
           value={name}
           onChange={handleNameChange}
           placeholder="Name"
-        />
+          />
         <StyledInput
           type="text"
           name="phoneNumber"
           value={phoneNumber}
           onChange={handlePhoneNumberChange}
           placeholder="Phone Number"
-        />
+          />
         <StyledInput
           type="email"
           name="email"
           value={email}
           onChange={handleEmailChange}
           placeholder="Email"
-        />
+          />
         <StyledInput
           type="number"
           name="idForTenantToAssociate"
           value={idForTenantToAssociate}
           onChange={handleIdForTenantToAssociateChange}
           placeholder="ID for Tenant to Associate"
-        />
+          />
         <StyledInput
           type="text"
           name="address"
           value={address}
           onChange={handleAddressChange}
           placeholder="Address"
-        />
-        <StyledButton type="submit">Update Landlord</StyledButton>
+          />
+        <StyledButton type="submit">Update Profile</StyledButton>
       </StyledForm>
-      {/* <StyledAddAPropertyButton onClick={handleClick}>Add Property</StyledAddAPropertyButton>
-      {showAddAProperty && <AddAProperty />} */}
     </Container>
+          </GridContainer>
   );
 };
 

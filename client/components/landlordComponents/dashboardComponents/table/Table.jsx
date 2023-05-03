@@ -7,24 +7,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-// useSelector and useDispatch are hooks that allow us to access the state and dispatch actions
 import { useSelector, useDispatch } from "react-redux";
-// selectProperties is the function we wrote in our propertySlice.js file that selects the properties from the state
 import { selectProperties } from "../../landlordSlices/fetchAllPropertiesSlice";
-// fetchPropertiesAsync is the function we wrote in our propertySlice.js file that fetches the properties from the API
 import { fetchPropertiesAsync } from "../../landlordSlices/fetchAllPropertiesSlice";
 
 const List = () => {
-  // useDispatch is a hook that allows us to dispatch actions
   const dispatch = useDispatch();
-  // useEffect is a hook that allows us to run code when the component mounts
+
   useEffect(() => {
     dispatch(fetchPropertiesAsync());
   }, [dispatch]);
 
-  // useSelector is a hook that allows us to select data from the state
   const properties = useSelector(selectProperties);
-
 
   return (
     <TableContainer component={Paper} className="table">
@@ -45,26 +39,45 @@ const List = () => {
             <TableCell className="tableCell">Property Tax Yearly</TableCell>
             <TableCell className="tableCell">Insurance Yearly</TableCell>
             <TableCell className="tableCell">Vacancy Rate</TableCell>
-          
           </TableRow>
         </TableHead>
         <TableBody>
           {properties.map((property) => (
             <TableRow key={property.id}>
               <TableCell className="tableCell">{property.id}</TableCell>
-              <TableCell className="tableCell">{property.propertyName}</TableCell>
+              <TableCell className="tableCell">
+                {property.propertyName}
+              </TableCell>
               <TableCell className="tableCell">{property.address}</TableCell>
-              <TableCell className="tableCell">{property.numberOfUnits}</TableCell>
+              <TableCell className="tableCell">
+                {property.numberOfUnits}
+              </TableCell>
               <TableCell className="tableCell">{property.landlordId}</TableCell>
-              <TableCell className="tableCell">{property.pricePurchased}</TableCell>
-              <TableCell className="tableCell">{property.datePurchased}</TableCell>
-              <TableCell className="tableCell">{property.rentalAmount}</TableCell>
-              <TableCell className="tableCell">{property.mortgageExpense}</TableCell>
-              <TableCell className="tableCell">{property.currentMarketValue}</TableCell>
+              <TableCell className="tableCell">
+                {property.pricePurchased}
+              </TableCell>
+              <TableCell className="tableCell">
+                {property.datePurchased}
+              </TableCell>
+              <TableCell className="tableCell">
+                {property.rentalAmount}
+              </TableCell>
+              <TableCell className="tableCell">
+                {property.mortgageExpense}
+              </TableCell>
+              <TableCell className="tableCell">
+                {property.currentMarketValue}
+              </TableCell>
               <TableCell className="tableCell">{property.hoaExpense}</TableCell>
-              <TableCell className="tableCell">{property.propertyTax}</TableCell>
-              <TableCell className="tableCell">{property.insuranceExpense}</TableCell>
-              <TableCell className="tableCell">{property.vacancyRate}</TableCell>
+              <TableCell className="tableCell">
+                {property.propertyTax}
+              </TableCell>
+              <TableCell className="tableCell">
+                {property.insuranceExpense}
+              </TableCell>
+              <TableCell className="tableCell">
+                {property.vacancyRate}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

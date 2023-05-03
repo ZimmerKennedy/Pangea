@@ -7,32 +7,41 @@ import Sidebar from "../sidebar/Sidebar.jsx";
 import { useNavigate } from "react-router-dom";
 
 
-const Container = styled.div`
-display:flex;
-height: 98vh;
-margin-left: 17vw;
-width: 83vw;
-justify-content: center;
-background: rgb(246,246,246);
-background: linear-gradient(90deg, rgba(246,246,246,1) 0%, rgba(214,228,240,1) 44%, rgba(30,86,160,1) 79%, rgba(22,49,114,1) 99%);
-;`
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
+`;
 
-const Form = styled.form`
+const Container = styled.div`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+
+const Box = styled.form`
 display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: auto;
-height:auto;
-margin: 10%;
-align-self: center;
-background-color: #fff;
-box-shadow: 0px 0px 10px #1E56A0;
-border-radius: 1rem;
-padding: 5rem;
-&:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-}
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin: 10%;
+  align-self: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #1e56a0;
+  border-radius: 1rem;
+  padding: 5rem;
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  }
 `;
 const Input = styled.input`
 margin: 10px 0;
@@ -105,26 +114,29 @@ const CreateProperty = () => {
   
 
   return (
-    <Container>
+    <GridContainer >
       <Sidebar />
-      <Form onSubmit={handleSubmit}>
+
+    <Container>
+      <Box onSubmit={handleSubmit}>
         <Input
           type="text"
           id="propertyName"
           value={propertyName}
           onChange={handlePropertyNameChange}
           placeholder="Property Name"
-        />
+          />
         <Input
           type="text"
           id="address"
           value={address}
           onChange={handleAddressChange}
           placeholder="Address"
-        />
+          />
         <Button type="submit">Add Property</Button>
-      </Form>
+      </Box>
     </Container>
+          </GridContainer>
   );
 };
 

@@ -1,43 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addRentAsync } from "./landlordSlices/fetchAllRentsSlice";
-import { selectTenants, fetchTenantsAsync } from "./landlordSlices/fetchAllTenantsSlice";
+import {
+  selectTenants,
+  fetchTenantsAsync,
+} from "./landlordSlices/fetchAllTenantsSlice";
 import styled from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";
 
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
+`;
+
 const Container = styled.div`
-display:flex;
-height: 98vh;
-margin-left: 17vw;
-width: 83vw;
-justify-content: center;
-background: rgb(246,246,246);
-background: linear-gradient(90deg, rgba(246,246,246,1) 0%, rgba(214,228,240,1) 44%, rgba(30,86,160,1) 79%, rgba(22,49,114,1) 99%);
-;`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Form = styled.form`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: auto;
-height:auto;
-margin: 10%;
-align-self: center;
-background-color: #fff;
-box-shadow: 0px 0px 10px #1E56A0;
-border-radius: 1rem;
-padding: 5rem;
-&:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin: 10%;
+  align-self: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #1e56a0;
+  border-radius: 1rem;
+  padding: 5rem;
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  }
 `;
 const Input = styled.input`
-margin: 10px 0;
-padding: 10px;
-width: 20vw;
-font-size: 1.2em;
-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  margin: 10px 0;
+  padding: 10px;
+  width: 20vw;
+  font-size: 1.2em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 `;
 
 const Button = styled.button`
@@ -65,40 +76,39 @@ const Select = styled.select`
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 `;
 const AddRent = () => {
-  const [price, setPrice] = useState('');
-  const [tenantId, setTenantId] = useState('');
+  const [price, setPrice] = useState("");
+  const [tenantId, setTenantId] = useState("");
   const dispatch = useDispatch();
-  const tenants = useSelector(selectTenants)
-
+  const tenants = useSelector(selectTenants);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(addRentAsync({ rentAmount : price, tenantId }));
+    dispatch(addRentAsync({ rentAmount: price, tenantId }));
     setPrice("");
   };
 
-  const handleChange = (e) =>{
+  const handleChange = (e) => {
     setTenantId(e.target.value);
-  }
+  };
 
-  useEffect(() =>{
+  useEffect(() => {
     dispatch(fetchTenantsAsync());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
-    <Container>
+    <GridContainer>
       <Sidebar />
+      <Container>
         <Form onSubmit={onSubmit}>
-        <h1>Create rent</h1>
-        <p>Fill out this form to create a new rent amount.</p>
+          <h1>Create rent</h1>
+          <p>Fill out this form to create a new rent amount.</p>
           <Select name="tenantId" value={tenantId} onChange={handleChange}>
             <option>Select Tenant</option>
-            {tenants.map((tenant) =>(
+            {tenants.map((tenant) => (
               <option key={tenant.id} value={tenant.id}>
                 {tenant.name}
               </option>
             ))}
-
           </Select>
           <label>Rent Price</label>
           <Input
@@ -109,11 +119,10 @@ const AddRent = () => {
             onChange={(event) => setPrice(event.target.value)}
           />
           <Button>Submit</Button>
-
         </Form>
-      
-    </Container>
-  )
+      </Container>
+    </GridContainer>
+  );
 };
 
-export default AddRent
+export default AddRent;

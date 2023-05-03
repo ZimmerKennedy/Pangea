@@ -1,21 +1,29 @@
+#grid__dashboard{
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
+}
+
+
 .dashboard {
+  grid-area: main;
   display: flex;
-  background: rgb(246, 246, 246);
-  background: linear-gradient(90deg, rgba(246, 246, 246, 1) 0%, rgba(214, 228, 240, 1) 44%, rgba(30, 86, 160, 1) 79%, rgba(22, 49, 114, 1) 99%);
+  background: #F7F6F1;
   height: 100%;
-  margin-left: 17vw;
   justify-content: center;
   flex-direction: row;
-  width: 83vw;
+
 
   .widget {
     background-color: #fff;
-    box-shadow: 0px 0px 10px #1E56A0;
+    box-shadow: 0px 0px 10px rgb(137, 157, 164);
   }
 
   .featured {
     background-color: #fff;
-    box-shadow: 0px 0px 10px #1E56A0;
+    box-shadow: 0px 0px 10px rgb(137, 157, 164);
   }
 
   .dashboardContainer {
@@ -32,19 +40,19 @@
     .chart {
       padding: 5px 20px;
       background-color: #fff;
-      box-shadow: 0px 0px 10px #1E56A0;
+      box-shadow: 0px 0px 10px rgb(137, 157, 164);
     }
 
     .listContainer {
       background-color: #fff;
-      box-shadow: 0px 0px 10px #1E56A0;
+      box-shadow: 0px 0px 10px rgb(137, 157, 164);
       padding: 20px;
       margin: 20px;
       width: 78vw;
 
       .listTitle {
         font-weight: 500;
-        color: gray;
+        color: #000000;
         margin-bottom: 15px;
       }
     }

@@ -7,14 +7,14 @@ import { defaultTheme } from "./components/Homepage/Themes.jsx";
 
 const App = () => {
   return (
-    <div>
+    <>
       <GlobalStyle />
       <ThemeProvider
       theme={defaultTheme}
       >
         <AppRoutes />
       </ThemeProvider>
-    </div>
+    </>
   );
 };
 

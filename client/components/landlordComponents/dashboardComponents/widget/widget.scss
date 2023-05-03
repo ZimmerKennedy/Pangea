@@ -4,7 +4,7 @@
   flex: 1;
   padding: 10px;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  box-shadow: 2px 4px 10px 1px rgb(137, 157, 164);
   border-radius: 10px;
   height: 100px;
 
@@ -28,7 +28,13 @@
     .link {
       width: max-content;
       font-size: 12px;
-      border-bottom: 1px solid gray;
+      text-decoration: none;
+      color: #1E56A0;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom ease-in-out 0.2s;
+    }
+    .link:hover{
+      border-bottom: 1px solid #1E56A0;
     }
 
     .percentage {

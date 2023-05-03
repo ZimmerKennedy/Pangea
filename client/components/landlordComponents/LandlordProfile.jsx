@@ -12,58 +12,43 @@ import {
 } from "react-icons/fa";
 
 import Sidebar from "../sidebar/Sidebar.jsx";
-const StyledLandlordProfile = styled.div`
-  // display: flex;
-  // flex-direction: row;
-  // margin-left: 17vw;
-  // width: 83vw;
+
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
 `;
 
-const ProfileSection = styled.section`
-background: rgb(246,246,246);
-background: linear-gradient(90deg, rgba(246,246,246,1) 0%, rgba(214,228,240,1) 44%, rgba(30,86,160,1) 79%, rgba(22,49,114,1) 99%);
-display:flex;
-height: 98vh;
-margin-left: 17vw;
-width: 83vw;
-justify-content: center;
-  overflow: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    width: 0;
-    background-color: transparent;
-  }
-  
+const Container = styled.div`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-const bounce = keyframes`
-  0% {
-    transform: translateY(-50px);
-  }
-  80% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
+
 
 const ProfileBox = styled.div`
-align-self: center;
-background-color: #fff;
-box-shadow: 0px 0px 10px #1E56A0;
-border-radius: 1rem;
-padding: 5rem;
+background-color:white;
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: center;
+margin: 1rem;
+border: 1px solid black;
+height: 50vh;
+width: 50vw;
+transition: box-shadow 0.2s ease-in-out;
 &:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
-animation: ${bounce} 1s;
-`
+box-shadow: 0px 0px 10px #1E56A0;
+`;
 
 const ProfileHeader = styled.h2`
   color: #1d3557;
@@ -102,9 +87,11 @@ const LandlordProfile = () => {
     dispatch(fetchlandlordAsync(me.id));
   }, [dispatch]);
   return (
-    <StyledLandlordProfile>
+    <GridContainer>
       <Sidebar />
-      <ProfileSection>
+
+    <Container>
+      
         <ProfileBox>
         <ProfileImage>
           <FaUserCircle />
@@ -141,8 +128,9 @@ const LandlordProfile = () => {
           Unique Id: {userLandlord.idForTenantToAssociate}
         </ProfileItem>
         </ProfileBox>
-      </ProfileSection>
-    </StyledLandlordProfile>
+     
+    </Container>
+    </GridContainer>
   );
 };
 
