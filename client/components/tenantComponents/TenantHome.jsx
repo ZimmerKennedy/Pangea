@@ -9,23 +9,28 @@ import {
   fetchTenantAsync,
   selectTenant,
 } from "../landlordComponents/landlordSlices/fetchSingleTenantSlice";
-import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
+import TenantSidebar from './TenantSidebar.jsx'
 
 
 
-const Background = styled.div`
-  display: flex;
-  flex-direction: row;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0),
-    rgba(200, 200, 200, 0.5)
-  ), url();
-  width: 83vw;
-  height:98vh;
-  margin-left: 15vw;
-  background-size: cover;
-  background-position: center;
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
 `;
+
+const Container = styled.div`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Title = styled.h1`
   color: #163172;
   margin-bottom: -0.4rem;
@@ -82,16 +87,6 @@ const DueAmount = styled.div`
   flex-direction: column;
   font-size: 1.5rem;
 `;
-const AllButtons = styled.button`
-  background-color: #1e56a0;
-  color: white;
-  opacity: 75%;
-  border: none;
-  width: 25vw;
-  height: 5vh;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-`;
 
 //dummy daters
 const tenantName = "Pepe Silvia";
@@ -130,8 +125,10 @@ const TenantHome = () => {
   }, []);
 
   return (
-    <Background>
+    <GridContainer>
+
       <TenantSidebar />
+    <Container>
       <Section>
         <Title>
           {greeting}, {thisTenant.name}
@@ -148,18 +145,14 @@ const TenantHome = () => {
               style={{
                 color: rentDue === 0 ? "green" : "red",
               }}
-            >
+              >
               ${rentDue}
             </DueAmount>
           </DueRentBox>
-        </RentBox>
-    
-        {/* <Link to={"/pastpayments"}>
-          <AllButtons>Past Payments</AllButtons>
-        </Link> */}
-        
+        </RentBox>       
       </Section>
-    </Background>
+    </Container>
+        </GridContainer>
   );
 };
 

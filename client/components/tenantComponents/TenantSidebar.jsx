@@ -1,4 +1,3 @@
-import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
@@ -10,10 +9,10 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
 import React from "react";
-import { logout } from "../../../app/store.js";
+import { logout } from "../../app/store.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ApartmentIcon from '@mui/icons-material/Apartment';
+
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Pangea</span>
+          <span className="logo">Rentility</span>
         </Link>
       </div>
       <hr />
@@ -39,12 +38,6 @@ const Sidebar = () => {
               <span>Home</span>
             </li>
           </Link>
-          <li onClick={logoutAndRedirectHome}>
-            <ExitToAppIcon className="icon" />
-            <span>
-              Sign Out
-            </span>
-          </li>
           <p className="title">SETTINGS</p>
           <Link to="/profile-page" style={{ textDecoration: "none" }}>
             <li>
@@ -70,18 +63,14 @@ const Sidebar = () => {
               <span>Submit Work Order</span>
             </li>
           </Link>
+      <li onClick={logoutAndRedirectHome}>
+        <ExitToAppIcon className="icon" />
+        <span>
+          Sign Out
+        </span>
+      </li>
         </ul>
       </div>
-      {/* <div className="bottom">
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
-          ></div>
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
-          ></div>
-      </div> */}
     </div>
   );
 };

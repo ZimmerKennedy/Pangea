@@ -1,100 +1,48 @@
 import React from "react";
 import styled from "styled-components";
+import { DoubleQuote } from "../assets/svgs/Svgs.jsx";
 
 const Container = styled.main`
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
-
-const LeftGrid = styled.div`
-  background: ${(props) => props.theme.thirdBg};
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid ${(props) => props.theme.text};
-  overflow: hidden;
-`;
-
-const Image = styled.img`
-  width: 60%;
-  object-fit: cover;
-  border-radius: 50%;
-  height: 70%;
-  display: block;
-  object-position: center center;
-  background-repeat: no-repeat;
-`;
-//   border-radius: 240px 240px 0 0;
-const RightGrid = styled.div`
-  background: ${(props) => props.theme.body};
-  height: 100%;
+  min-height: 100vh;
+  background: ${(props) => props.theme.fourthBg};
+  color: ${(props) => props.theme.text};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${(props) => props.theme.thirdBg};
-`;
-
-const Box = styled.div`
-  width: 60%;
-  text-align: center;
-`;
-
-const Brand = styled.h1`
-  font-size: 3rem;
-  font-family: ${(props) => props.theme.fontFamily};
-  font-weight: 600;
-`;
-
-const Vision = styled.p`
-  font-size: 1.5em;
-  margin: 40px 0;
-  font-weight: 100;
-  line-height: 1.2em;
-`;
-const Button = styled.button`
-  padding: 20px;
-  font-size: 1em;
-  background: ${(props) => props.theme.secondBg};
-  color: ${(props) => props.theme.text};
   border: 1px solid ${(props) => props.theme.text};
-  cursor: pointer;
-  transition: background-color 1s ease, color 1s ease;
-  background-color: transparent;
-
-  &:hover {
-    background: ${(props) => props.theme.text};
-    color: ${(props) => props.theme.secondBg};
-  }
+`;
+const Box = styled.div`
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
+const Quotation = styled(DoubleQuote)`
+  font-weight: 800;
+`;
+
+const Quote = styled.div`
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 400;
+`;
 const Home3rdPage = () => {
   return (
     <Container>
-      <LeftGrid>
-        <Image
-          src="https://images.pexels.com/photos/3184416/pexels-photo-3184416.jpeg"
-          alt=""
-        />
-      </LeftGrid>
-      <RightGrid>
-        <Box>
-          <Brand>RENTALITY</Brand>
-          <Vision>
-            Rentality's vision is to revolutionize the property management
-            landscape by empowering landlords and fostering transparent
-            relationships with their tenants.
-          </Vision>
-          <Vision>
-            Our seamless and intuitive platform simplifies property management,
-            enhances communication, and optimizes tenant experiences, fostering
-            trust and satisfaction for all parties involved.
-          </Vision>
-          <Button>THE VISION</Button>
-        </Box>
-      </RightGrid>
+      <Box>
+        <Quotation width={100} height={100} />
+        <Quote>
+          Embrace the harmony between landlords and tenants with Rentality. Our
+          intuitive app simplifies the rental journey, fostering transparent
+          communication and seamless management. Experience the true essence of
+          rental bliss in Rentality's modern ecosystem, where vibrant
+          connections meet effortless living.
+        </Quote>
+      </Box>
     </Container>
   );
 };

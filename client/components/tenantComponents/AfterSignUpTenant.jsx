@@ -4,41 +4,27 @@ import { updateTenant} from './tenantSlices/updateTenant';
 import { selectMe } from '../../auth/authSlice';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
+import TenantSidebar from './TenantSidebar.jsx'
 
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
+`;
 
 const Container = styled.div`
-display: flex;
-flex-direction: row;
-margin-left: 17vw;
-width: 83vw;
-`;
-
-const FormWrapper = styled.div`
-background: rgb(246,246,246);
-  flex: 6;
-  width: 83vw;
-  height:98vh;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    width: 0;
-    background-color: transparent;
-  }
-  
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.1),
-    rgba(200, 200, 200, 0.8)
-  ),;
-  background-repeat: no-repeat;
-background-position: 25% 75%;
+  align-items: center;
 `;
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -119,9 +105,11 @@ const AfterSignUpTenant = () => {
   };
 
   return (
-    <Container>
+    <GridContainer>
       <TenantSidebar />
-    <FormWrapper>
+      
+    <Container>
+
       <StyledForm onSubmit={handleSubmit}>
         <StyledInput
           type="text"
@@ -160,8 +148,9 @@ const AfterSignUpTenant = () => {
           />   
           <StyledButton type="submit">Update</StyledButton>
           </StyledForm>
-          </FormWrapper>
+
           </Container>
+          </GridContainer>
   )
 }
 

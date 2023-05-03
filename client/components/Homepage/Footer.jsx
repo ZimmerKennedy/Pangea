@@ -12,7 +12,7 @@ const Container = styled.nav`
   background: ${(props) => props.theme.text};
 `;
 
-const RightDiv = styled.div`
+const MidDiv = styled.div`
   display: flex;
   flex-direction: row;
   font-family: ${(props) => props.theme.fontFamily};
@@ -32,6 +32,8 @@ const RightDiv = styled.div`
   }
 `;
 
+
+
 const Brand = styled.div`
   font-size: 2rem;
   font-weight: 800;
@@ -45,33 +47,33 @@ const Footer = () => {
   return (
     <Container>
       <Brand onClick={() => navigate("/")}>Rentility</Brand>
-      <RightDiv>
+      <MidDiv>
         <div onClick={() => navigate("/signup")}>Apply Now</div>
         <div onClick={() => navigate("/signup")}>Tenants</div>
         <div onClick={() => navigate("/signup")}>Landlord</div>
-      </RightDiv>
+      </MidDiv>
       <div>
       <NavLink
-          style={{ color: "inherit" }}
+          style={{ padding: '10px' }}
           onClick={() =>
             window.open("https://github.com/ZimmerKennedy/Rentility", "_blank")
           }
         >
           <Github
             width={25}
-            height={25}
+            height={40}
             fill={(props) => props.theme.body}
           />
         </NavLink>
         <NavLink
-          style={{ color: "inherit" }}
+          style={{ padding: '10px' }}
           onClick={() =>
             window.open("https://www.linkedin.com/in/zimmerkennedy/", "_blank")
           }
         >
           <LinkedIn
             width={25}
-            height={25}
+            height={40}
             fill={(props) => props.theme.body}
           />
         </NavLink>

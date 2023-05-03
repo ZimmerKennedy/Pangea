@@ -8,21 +8,26 @@ import {
 } from "../landlordComponents/landlordSlices/fetchSingleTenantSlice";
 import { selectMe } from "../../auth/authSlice";
 import { useNavigate } from "react-router-dom";
-import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
+import TenantSidebar from './TenantSidebar.jsx'
 
-const Background = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  background-size: 1500px;
-  background-repeat: no-repeat;
-  background-position: 25% 75%;
-  width: 83vw;
-  height: 98vh;
-margin-left: 17vw;
-
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
 `;
+
+const Container = styled.div`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Title1 = styled.h1`
   color: #163172;
   font-size: 30px;
@@ -141,8 +146,10 @@ const handleNav = () =>{
 
 
   return (
-    <Background>
+    <GridContainer>
       <TenantSidebar/>
+
+    <Container>
       <Section>
         <Title1>
           {greeting}, {tenant.name}
@@ -159,14 +166,15 @@ const handleNav = () =>{
               style={{
                 color: rentDue !== 0 ? "green" : "red",
               }}
-            >
+              >
               ${tenant.rentAmount}
             </DueAmount>
           </DueRentBox>
         </RentBox>
         <Button onClick={handleNav}>Pay Rent Now</Button>
       </Section>
-    </Background>
+    </Container>
+              </GridContainer>
   );
 };
 

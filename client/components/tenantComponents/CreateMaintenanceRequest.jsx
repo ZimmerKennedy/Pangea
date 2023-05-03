@@ -4,14 +4,26 @@ import styled from "styled-components";
 import { createMaintenanceRequest } from "./tenantSlices/createMaintenanceRequestSlice";
 import { fetchUnitsAsync, selectUnits } from "../landlordComponents/landlordSlices/fetchAllUnitsSlice";
 import { useNavigate } from "react-router-dom";
-import MaintenanceReq from "./MaintenanceReq.jsx";
+import Sidebar from "./TenantSidebar.jsx";
 
+
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
+`;
 
 const Container = styled.div`
-display: flex;
-flex-direction: row;
-margin-left: 17vw;
-
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const FormWrapper = styled.div`
@@ -110,9 +122,10 @@ const CreateMaintenanceRequest = () => {
   };
 
   return (
+    <GridContainer>
+      <Sidebar />
     <Container>
       <FormWrapper>
-    <MaintenanceReq />
     <Form onSubmit={handleSubmit}>
       <Select name="unitId" value={requestData.unitId} onChange={handleChange}>
         <option value>Select Unit Number</option>
@@ -146,6 +159,7 @@ const CreateMaintenanceRequest = () => {
     </Form>
         </FormWrapper>
         </Container>
+        </GridContainer>
   );
 };
 

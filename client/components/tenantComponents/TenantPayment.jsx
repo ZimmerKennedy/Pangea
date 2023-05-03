@@ -7,21 +7,28 @@ import {
 import { selectMe } from "../../auth/authSlice";
 import { submitPayment } from "./tenantSlices/tenantPaymentSlice";
 import styled from "styled-components";
-import TenantSidebar from './tenantSidebar/TenantSidebar.jsx'
-const Background = styled.div`
-display: flex;
-flex-direction: row;
-background: linear-gradient(
-  rgba(255, 255, 255, 0),
-  rgba(200, 200, 200, 0.5)
-), url("ba4a69c82567318b2769.jpeg");
-width: 83vw;
-height:98vh;
-margin-left: 15vw;
-background-size: cover;
-background-position: center;
-justify-content: center;
+import TenantSidebar from './TenantSidebar.jsx'
+
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  grid-template-areas: "sidebar main";
+  height: 100vh;
+  width: 100vw;
 `;
+
+
+const Container = styled.div`
+  grid-area: main;
+  height: 100%;
+  background: ${(props) => props.theme.body};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -122,8 +129,10 @@ const TenantPayment = () => {
 
 
   return (
-    <Background>
+    <GridContainer>
       <TenantSidebar />
+
+    <Container>
       <FormContainer>
        
           <Form>
@@ -157,7 +166,7 @@ const TenantPayment = () => {
               type="text"
               id="creditCardNumber"
               placeholder="Credit Card Number"
-            />
+              />
           
             <Label htmlFor="expirationDate">Expiration Date:</Label>
             <Input type="month" id="expirationDate" />
@@ -168,7 +177,8 @@ const TenantPayment = () => {
           <SubmitButton type="submit">Submit Payment</SubmitButton>
         </Form>
       </FormContainer>
-    </Background>
+    </Container>
+              </GridContainer>
   );
 };
 

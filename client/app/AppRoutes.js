@@ -7,7 +7,6 @@ import { selectMe } from "../auth/authSlice";
 import {
   TenantHome,
   MakeAPayment,
-  MaintenanceReq,
   AfterSignUpTenant,
   CreateMaintenanceRequest,
   TenantPayment,
@@ -56,12 +55,8 @@ const AppRoutes = () => {
           <Routes>
             <Route path="/tenanthome" element={<TenantHome />} />
             <Route path="/makeapayment" element={<MakeAPayment />} />
-            <Route path="/maintenancereq" element={<MaintenanceReq />} />
             <Route path="/signup-tenant" element={<AfterSignUpTenant />} />
-            <Route
-              path="/create-maintenance-request"
-              element={<CreateMaintenanceRequest />}
-            />
+            <Route path="/create-maintenance-request" element={<CreateMaintenanceRequest />}/>
             <Route path="/*" element={<TenantHome />} />
             <Route path="/payment" element={<TenantPayment />} /> 
           </Routes>
