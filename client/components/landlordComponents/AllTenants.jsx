@@ -14,7 +14,6 @@ import Sidebar from "../sidebar/Sidebar.jsx";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 15vw 85vw;
@@ -30,7 +29,7 @@ const StyledLandlordProfile = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 `;
 
 const ProfileImage = styled.div`
@@ -67,7 +66,7 @@ const TenantBox = styled.div`
 const LinkSingle = styled(Link)`
   text-decoration: none;
   color: black;
-`
+`;
 
 const AllTenants = () => {
   const dispatch = useDispatch();
@@ -96,55 +95,52 @@ const AllTenants = () => {
   }, [deleteId, dispatch]);
 
   return (
-    <GridContainer> 
-
+    <GridContainer>
       <Sidebar />
-    <StyledLandlordProfile>
-
-      {tenants &&
-        Array.isArray(tenants) &&
-        tenants.map((tenant) => {
-          return (
-            <TenantBox key={tenant.id}>
-              <ProfileImage>
-                <FaHome />#{tenant.unitIdToAssociateTenant}
-              </ProfileImage>
-              <ProfileItem>{tenant.name}</ProfileItem>
-              <ProfileItem>Phone Number:{tenant.phoneNumber}</ProfileItem>
-              <ProfileItem>Email: {tenant.email}</ProfileItem>
-              <ProfileItem>Username: {tenant.username}</ProfileItem>
-              <ProfileItem>Birth Date: {tenant.dateOfBirth}</ProfileItem>
-              <ProfileItem>
-                Lease Start:{" "}
-                {new Date(tenant.leaseStartDate)
-                  .toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  })
-                  .replace(/(\d+)\/(\d+)\/(\d+)/, "$3/$1/$2")}
-              </ProfileItem>
-              <ProfileItem>
-                Lease End:{" "}
-                {new Date(tenant.leaseEndDate)
-                  .toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  })
-                  .replace(/(\d+)\/(\d+)\/(\d+)/, "$3/$1/$2")}
-              </ProfileItem>
-              <ProfileItem>Rent:{tenant.rentAmount}</ProfileItem>
-              <ProfileItem>
-                {" "}
-                Status: {tenant.rentPaid ? "Paid" : "Owed"}
-              </ProfileItem>
-              <LinkSingle to={`/singletenant/${tenant.id}`}>View Details</LinkSingle>
-            </TenantBox>
-          );
-        })}
-    </StyledLandlordProfile>
-          </GridContainer>
+      <StyledLandlordProfile>
+        {tenants &&
+          Array.isArray(tenants) &&
+          tenants.map((tenant) => {
+            return (
+              <TenantBox key={tenant.id}>
+                <ProfileImage>
+                  <FaHome />#{tenant.unitIdToAssociateTenant}
+                </ProfileImage>
+                <ProfileItem>{tenant.name}</ProfileItem>
+                <ProfileItem>Phone Number:{tenant.phoneNumber}</ProfileItem>
+                <ProfileItem>Email: {tenant.email}</ProfileItem>
+                <ProfileItem>Username: {tenant.username}</ProfileItem>
+                <ProfileItem>Birth Date: {tenant.dateOfBirth}</ProfileItem>
+                <ProfileItem>
+                  Lease Start:{" "}
+                  {new Date(tenant.leaseStartDate)
+                    .toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })
+                    .replace(/(\d+)\/(\d+)\/(\d+)/, "$3/$1/$2")}
+                </ProfileItem>
+                <ProfileItem>
+                  Lease End:{" "}
+                  {new Date(tenant.leaseEndDate)
+                    .toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })
+                    .replace(/(\d+)\/(\d+)\/(\d+)/, "$3/$1/$2")}
+                </ProfileItem>
+                <ProfileItem>Rent:{tenant.rentAmount}</ProfileItem>
+                <ProfileItem>
+                  {" "}
+                  Status: {tenant.rentPaid ? "Paid" : "Owed"}
+                </ProfileItem>
+              </TenantBox>
+            );
+          })}
+      </StyledLandlordProfile>
+    </GridContainer>
   );
 };
 

@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteUnitAsync,
   fetchUnitsAsync,
   selectUnits,
 } from "./landlordSlices/fetchAllUnitsSlice";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import { FaHome } from "react-icons/fa";
 import DeleteIcon from "@mui/icons-material/Delete";
+import {
+  fetchPropertiesAsync,
+  selectProperties,
+} from "./landlordSlices/fetchAllPropertiesSlice";
 
 const GridContainer = styled.div`
   display: grid;
@@ -29,19 +33,19 @@ const Container = styled.div`
 `;
 
 const UnitBox = styled.div`
-  background-color:white;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem;
   border: 1px solid black;
-  height: 50vh;
-  width: 50vw;
+  height: 30vh;
+  width: 30vw;
   transition: box-shadow 0.2s ease-in-out;
   &:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   }
-  box-shadow: 0px 0px 10px #1E56A0;
+  box-shadow: 0px 0px 10px #1e56a0;
 `;
 
 const UnitAddress = styled.div`
@@ -64,15 +68,23 @@ const DeleteSpan = styled.span`
 const Units = () => {
   const dispatch = useDispatch();
   const units = useSelector(selectUnits);
-
+  const properties = useSelector(selectProperties);
+  console.log(`units`, units);
+  console.log(`properties`, properties);
   useEffect(() => {
     dispatch(fetchUnitsAsync());
+    dispatch(fetchPropertiesAsync());
   }, [dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteUnitAsync(id));
-    window.location.reload(false);
   };
+
+  const findProperty = (propertyId) => {
+    const property = properties.find((property) => property.id === propertyId);
+    return property ? property.propertyName : "Property not found";
+  };
+
   return (
     <GridContainer>
       <Sidebar />
@@ -80,17 +92,17 @@ const Units = () => {
         {units &&
           Array.isArray(units) &&
           units.map((unit) => {
+            const propertyName = findProperty(unit.propertyId);
+
             return (
               <UnitBox key={unit.id}>
                 <UnitAddress>
-                  <FaHome /> {unit.unitNumber}
+                  <FaHome /> {unit.unitNumber} at {propertyName}
                   <DeleteSpan>
                     <DeleteIcon onClick={() => handleDelete(unit.id)} />
                   </DeleteSpan>
                 </UnitAddress>
-
                 <p>Bedrooms: {unit.bedrooms}</p>
-
               </UnitBox>
             );
           })}

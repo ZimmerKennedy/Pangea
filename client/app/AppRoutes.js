@@ -20,7 +20,6 @@ import {
   SingleMaintenanceRequest,
   MaintenanceRequest,
   AllTenants,
-  SingleTenant,
   LandlordProfile,
   AddTenantToUnit,
   AddRent,
@@ -73,7 +72,6 @@ const AppRoutes = () => {
             />
             <Route path="/workorders" element={<MaintenanceRequest />} />
             <Route path="/tenants" element={<AllTenants />} />
-            <Route path="/singletenant/:id" element={<SingleTenant />} />
             <Route path="/profile-page" element={<LandlordProfile />} />
             <Route path="add-tenant-unit" element={<AddTenantToUnit />} />
             <Route

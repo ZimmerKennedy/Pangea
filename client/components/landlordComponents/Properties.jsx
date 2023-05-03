@@ -25,8 +25,6 @@ const Container = styled.div`
   align-items: center;
 `;
 
-
-
 const PropertyBox = styled.div`
   background-color:white;
   display: flex;
@@ -72,7 +70,6 @@ const Properties = () => {
 
   const handleDelete = (id) => {
     dispatch(deletePropertyAsync(id));
-    window.location.reload(false);
   };
   return (
     <GridContainer>

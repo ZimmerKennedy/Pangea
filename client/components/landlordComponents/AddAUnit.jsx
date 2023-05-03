@@ -82,7 +82,6 @@ const UnitForm = () => {
   const navigate = useNavigate();
   const [unit, setUnit] = useState({
     unitNumber: "",
-    // rentAmount: '',
     bedrooms: "",
     propertyId: "",
   });
