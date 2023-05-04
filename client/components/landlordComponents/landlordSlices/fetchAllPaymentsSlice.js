@@ -5,7 +5,7 @@ export const fetchPaymentHistory = createAsyncThunk(
   "paymentHistory/fetchPaymentHistory",
   async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/api/paymentHistory");
+      const { data } = await axios.get("https://rentility.onrender.com/api/paymentHistory");
       return data;
     } catch (error) {
       console.error(error);

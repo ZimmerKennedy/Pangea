@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const fetchSingleMaintenanceRequestAsync =  createAsyncThunk('singleMaintenanceRequest', async (id) =>{
     try{
-        const { data } = await axios.get(`http://localhost:8080/api/maintenanceRequest/${id}`);
+        const { data } = await axios.get(`https://rentility.onrender.com/api/maintenanceRequest/${id}`);
         return data
     } catch (err){
         console.error(`error in singleWorkOrderThunk`,err)

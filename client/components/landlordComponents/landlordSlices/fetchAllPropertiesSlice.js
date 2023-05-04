@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const fetchPropertiesAsync = createAsyncThunk('properties', async() =>{
   try{
-    const { data } = await axios.get(`http://localhost:8080/api/property`);
+    const { data } = await axios.get(`https://rentility.onrender.com/api/property`);
     return data
   } catch (err){
     console.error(`error in Properties Thunk`,err)
@@ -13,7 +13,7 @@ export const fetchPropertiesAsync = createAsyncThunk('properties', async() =>{
 
 export const deletePropertyAsync = createAsyncThunk("deleteProperty", async(propertyId) => {
   try{
-    const {data} = await axios.delete(`http://localhost:8080/api/property/${propertyId}`)
+    const {data} = await axios.delete(`https://rentility.onrender.com/api/property/${propertyId}`)
     return data
   } catch(err) {
     console.error(`Error in deletePropertyAsync`,err)

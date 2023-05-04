@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchMaintenanceRequestsAsync = createAsyncThunk('allMaintenanceRequest', async() =>{ 
     try{
-        const { data } = await axios.get(`http://localhost:8080/api/maintenanceRequest`);
+        const { data } = await axios.get(`https://rentility.onrender.com/api/maintenanceRequest`);
         return data;
     } catch (err){
         console.error(err);
@@ -12,7 +12,7 @@ export const fetchMaintenanceRequestsAsync = createAsyncThunk('allMaintenanceReq
 
 export const deleteMaintenanceRequestAsync = createAsyncThunk('deleteMaintenanceRequest', async(id) =>{
     try{
-        await axios.delete(`http://localhost:8080/api/maintenanceRequest/${id}`);
+        await axios.delete(`https://rentility.onrender.com/api/maintenanceRequest/${id}`);
     } catch (err){
         console.error(err);
     }

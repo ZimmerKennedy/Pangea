@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchlandlordAsync = createAsyncThunk('landlord', async(id) =>{
     try{
-      const { data } = await axios.get(`http://localhost:8080/api/landlords/${id}`);
+      const { data } = await axios.get(`https://rentility.onrender.com/api/landlords/${id}`);
 
       return data
     } catch (err){
