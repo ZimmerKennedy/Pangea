@@ -5,6 +5,11 @@ const Container = styled.main`
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50vh 50vh;
+  }
 `;
 
 const LeftGrid = styled.div`
@@ -15,6 +20,7 @@ const LeftGrid = styled.div`
   align-items: center;
   border: 1px solid ${(props) => props.theme.text};
   overflow: hidden;
+ 
 `;
 
 const Image = styled.img`
@@ -25,6 +31,7 @@ const Image = styled.img`
   display: block;
   object-position: center center;
   background-repeat: no-repeat;
+ 
 `;
 
 const RightGrid = styled.div`
@@ -46,6 +53,9 @@ const Brand = styled.h1`
   font-size: 3rem;
   font-family: ${(props) => props.theme.fontFamily};
   font-weight: 600;
+  @media only screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Vision = styled.p`
@@ -53,6 +63,10 @@ const Vision = styled.p`
   margin: 40px 0;
   font-weight: 100;
   line-height: 1.2em;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.7rem;
+    margin: 20px 0;
+  }
 `;
 const Button = styled.button`
   padding: 20px;
@@ -67,6 +81,9 @@ const Button = styled.button`
   &:hover {
     background: ${(props) => props.theme.text};
     color: ${(props) => props.theme.secondBg};
+  }
+  @media only screen and (max-width: 768px) {
+    padding: 10px;
   }
 `;
 

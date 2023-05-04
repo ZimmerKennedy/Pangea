@@ -7,13 +7,20 @@ const Container = styled.main`
   justify-content: center;
   align-items: center;
   background: ${(props) => props.theme.body};
+  
 `;
 
 const GridContainer = styled.div`
-  height: 80%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 31vh 31vh 31vh;
+  }
 `;
+
 
 const LeftGrid = styled.div`
   background: ${(props) => props.theme.fourthBg};
@@ -22,9 +29,12 @@ const LeftGrid = styled.div`
   align-items: center;
   border: 1px solid ${(props) => props.theme.text};
   overflow: hidden;
-  margin: 10px;
+  margin: 5px;
   position: relative;
   border-radius: 20px 5px 5px 20px;
+  @media only screen and (max-width: 768px) {
+    border-radius: 20px 20px 5px 5px;
+  }
 `;
 
 const MiddleGrid = styled.div`
@@ -34,8 +44,9 @@ const MiddleGrid = styled.div`
   align-items: center;
   border: 1px solid ${(props) => props.theme.text};
   overflow: hidden;
-  margin: 10px;
+  margin: 5px;
   border-radius: 5px 5px 5px 5px;
+
 `;
 const RightGrid = styled.div`
   background: ${(props) => props.theme.fourthBg};
@@ -44,13 +55,23 @@ const RightGrid = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid ${(props) => props.theme.text};
-  margin: 10px;
+  margin: 5px;
   border-radius: 5px 20px 20px 5px;
+  @media only screen and (max-width: 768px) {
+    border-radius: 5px 5px 20px 20px;
+  }
 `;
 
 const Box = styled.div`
   width: 80%;
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Vision = styled.p`
@@ -59,6 +80,10 @@ const Vision = styled.p`
   font-weight: 100;
   line-height: 1.2em;
   z-index: 3;
+  @media only screen and (max-width: 768px) {
+    font-size: 0.5rem;
+    margin: 15px 0;
+  }
 `;
 const Button = styled.button`
   font-size: 1.4rem;
@@ -77,6 +102,10 @@ const Button = styled.button`
     background: ${(props) => props.theme.text};
     color: ${(props) => props.theme.secondBg};
   }
+  @media only screen and (max-width: 768px) {
+    font-size: 0.5rem;
+    padding: 10px;
+  }
 `;
 
 const Image = styled.img`
@@ -87,6 +116,10 @@ const Image = styled.img`
   object-position: center center;
   background-repeat: no-repeat;
   border-radius: 50%;
+  @media only screen and (max-width: 768px) {
+    height: 70px;
+    width: 100px;
+  }
 `;
 
 const Home3rdPage = () => {

@@ -29,6 +29,9 @@ const Quote = styled.div`
   text-align: center;
   letter-spacing: 2px;
   font-weight: 400;
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 const Home3rdPage = () => {
   return (

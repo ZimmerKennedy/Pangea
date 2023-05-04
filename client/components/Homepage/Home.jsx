@@ -10,19 +10,35 @@ import Footer from "./Footer.jsx";
 
 const Container = styled.main`
   background: ${(props) => props.theme.body};
+  width: 100vw;
   height: 100vh;
-  min-height: 100vh;
   position: relative;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > h1 {
+    padding: 0.5rem 1rem;
+    color: inherit;
+    background-color: transparent;
+    transition: background-color 1s ease, color 1s ease;
+  }
+
+  & > h1:hover {
+    background-color: ${(props) => props.theme.text};
+    color: ${(props) => props.theme.hoverText};
+  }
 `;
 
 const Brand = styled.h1`
   font-size: calc(6rem + 6rem);
   font-family: ${(props) => props.theme.fontFamily};
   font-weight: 600;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
+
+  @media only screen and (max-width: 768px) {
+    font-size: calc(1rem + 1rem);
+  }
 `;
 
 const bounce = keyframes`
@@ -56,7 +72,9 @@ const Home = () => {
     <>
     <Container>
       <Navbar />
-      <Brand>Empowering Rental Harmony</Brand>
+      <Brand>Empowering</Brand>
+      <Brand>RENTAL</Brand>
+      <Brand>HARMONY</Brand>
       <ScrollDownIcon
         sx={{ width: 50, height: 50, color: "gray" }}
         onClick={handleScrollDown}

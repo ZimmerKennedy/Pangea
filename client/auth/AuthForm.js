@@ -60,10 +60,8 @@ const Link = styled.span`
   }
 `;
 
-
-
 const AuthForm = ({ name, displayName }) => {
-  const { error } = useSelector((state) => state.auth);
+  const error = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (evt) => {
@@ -83,27 +81,26 @@ const AuthForm = ({ name, displayName }) => {
 
   return (
     <>
-    <Navbar />
-    <FormContainer>
-      <Form onSubmit={handleSubmit} name={name}>
-        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
-          {displayName}
-        </h1>
-        <Input placeholder="Username" name="username" type="text" />
-        <Input placeholder="Password" name="password" type="password" />
+      <Navbar />
+      <FormContainer>
+        <Form onSubmit={handleSubmit} name={name}>
+          <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
+            {displayName}
+          </h1>
+          <Input placeholder="Username" name="username" type="text" />
+          <Input placeholder="Password" name="password" type="password" />
 
-        <Button type="submit">{displayName}</Button>
+          <Button type="submit">{displayName}</Button>
 
-        <div style={{ marginTop: "10px" }}>
-          New to Rentility?
-          <Link href="/login" onClick={() => navigate("/signup")}>
-            Sign Up
-          </Link>
-        </div>
-
-        {error && <div>{error}</div>}
-      </Form>
-    </FormContainer>
+          <div style={{ marginTop: "10px" }}>
+            New to Rentility?
+            <Link href="/login" onClick={() => navigate("/signup")}>
+              Sign Up
+            </Link>
+          </div>
+          {error && <div style={{ color: "red" }}>{error.error}</div>}
+        </Form>
+      </FormContainer>
     </>
   );
 };

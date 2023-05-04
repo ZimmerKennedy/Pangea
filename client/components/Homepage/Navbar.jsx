@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import HamburgerIcon from "./HamburgerIcon.jsx";
 import { useNavigate } from "react-router-dom";
+
 const Container = styled.nav`
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 3rem;
   display: flex;
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid black;
+
+  @media only screen and (max-width: 768px) {
+    width: 94%;
+  }
 `;
 
 const RightDiv = styled.div`
@@ -28,6 +36,24 @@ const RightDiv = styled.div`
     background-color: ${(props) => props.theme.text};
     color: ${(props) => props.theme.hoverText};
   }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const MobileRightDiv = styled(RightDiv)`
+  @media only screen and (min-width: 769px) {
+    display: none;
+  }
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
+  flex-direction: column;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  background-color: ${(props) => props.theme.body};
+  width: 100%;
+  padding: 0.5rem 0;
 `;
 
 const Brand = styled.div`
@@ -35,8 +61,8 @@ const Brand = styled.div`
   font-weight: 800;
   font-family: ${(props) => props.theme.fontFamily};
   cursor: pointer;
-
 `;
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +80,11 @@ const Navbar = () => {
         <div onClick={() => navigate("/signup")}>Tenants</div>
         <div onClick={() => navigate("/signup")}>Landlord</div>
       </RightDiv>
+      <MobileRightDiv isOpen={isOpen}>
+        <div onClick={() => navigate("/signup")}>Apply Now</div>
+        <div onClick={() => navigate("/signup")}>Tenants</div>
+        <div onClick={() => navigate("/signup")}>Landlord</div>
+      </MobileRightDiv>
     </Container>
   );
 };

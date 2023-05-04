@@ -30,6 +30,9 @@ const MidDiv = styled.div`
     background-color: ${(props) => props.theme.body};
     color: ${(props) => props.theme.text};
   }
+  @media only screen and (max-width: 768px) {
+    display:none;
+  }
 `;
 
 

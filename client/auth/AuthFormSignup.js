@@ -63,7 +63,7 @@ const Link = styled.span`
 `;
 
 const AuthFormSignup = ({ name, displayName }) => {
-  const { error } = useSelector((state) => state.auth);
+  const  error  = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (evt) => {
@@ -79,10 +79,12 @@ const AuthFormSignup = ({ name, displayName }) => {
     }
 
     dispatch(authenticate({ username, password, role, method: formName }));
-    if (role === "landlord") {
-      navigate("/dashboard");
-    } else if (role === "tenant") {
-      navigate("/signup-tenant");
+    if (!error) {
+      if (role === "landlord") {
+        navigate("/dashboard");
+      } else if (role === "tenant") {
+        navigate("/signup-tenant");
+      }
     }
   };
 
@@ -106,8 +108,8 @@ const AuthFormSignup = ({ name, displayName }) => {
             Sign In
           </Link>
           </div>
+          {error && <div style={{color:'red'}}>{error.error}</div>}
        
-        {error && <div>{error}</div>}
       </Form>
     </FormContainer>
      </>
