@@ -3,6 +3,7 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 const cors = require("cors");
+require('dotenv').config();
 module.exports = app
 
 // logging middleware
