@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 5;
 
-
 const User = db.define("user", {
   username: {
     type: Sequelize.STRING,
@@ -31,15 +30,19 @@ module.exports = User;
 /**
  * instanceMethods
  */
+
+const some = 'q:wqLv5&>^]kvr`Og4y07I&_$m~*&^g*4bbH"zRW}Nnfi/^hj%VH"[*PD2GgDhP';
 User.prototype.correctPassword = function (candidatePwd) {
   //we need to compare the plain version to an encrypted version of the password
   return bcrypt.compare(candidatePwd, this.password);
 };
 
 User.prototype.generateToken = function () {
-  return jwt.sign({ id: this.id }, process.env.JWT_SECRET);
-};
-
+  console.log(`jwt`, process.env.JWT_SECRET);
+  const token = jwt.sign({ id: this.id }, some);
+  console.log(`token`, token);
+  return token;
+}
 /**
  * classMethods
  */
@@ -55,7 +58,7 @@ User.authenticate = async function ({ username, password }) {
 
 User.findByToken = async function (token) {
   try {
-    const { id } = await jwt.verify(token, process.env.JWT_SECRET);
+    const { id } = await jwt.verify(token, some);
     const user = User.findByPk(id);
     if (!user) {
       throw "nooo";
