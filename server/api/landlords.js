@@ -22,7 +22,6 @@ router.get('/:id', async (req, res, next) => {
         userId: id,
       }
     });
-    console.log(`landlordId`, req.params.id);
     res.send(landlord);
   } catch (err) {
     console.log(`error in single landlord route`, err);
@@ -31,7 +30,6 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.post("/", async (request, response, next) => {
-  console.log(`im request.body`, request.body);
   try {
     const landlord = await Landlord.create(request.body);
     response.json(landlord);
@@ -42,7 +40,6 @@ router.post("/", async (request, response, next) => {
 
 router.put("/:id", async (req, res, next) => {
   try {
-    console.log(`req from landlords`, req.params);
     const landlord = await Landlord.update(
       {
         name: req.body.name,
@@ -57,7 +54,6 @@ router.put("/:id", async (req, res, next) => {
         },
       }
     );
-    console.log(`landlord`, landlord);
     res.json(landlord);
   } catch (error) {
     console.log(`put route error landlord`, error);

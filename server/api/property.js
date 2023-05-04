@@ -39,23 +39,11 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
     try {
-        console.log(`req.body`, req.body)
         const { propertyName, address, landlordId } = req.body;
-        console.log(`req from property`, landlordId);
       const property = await Property.create({
         propertyName,
         address,
         landlordId,
-        // pricePurchased,
-        // datePurchased,
-        // rentalAmount,
-        // mortgageExpense,
-        // currentMarketValue,
-        // hoaExpense,
-        // propertyTax,
-        // insuranceExpense,
-        // vacancyRate,
-        // repairsExpense,
       },
       );
       res.json(property);

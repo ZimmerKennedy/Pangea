@@ -6,7 +6,6 @@ const PaymentHistory = require("../db/models/PaymentHistory");
 // Create a payment
 router.post("/", async (req, res) => {
   try {
-    console.log(`req.body`, req.body);
     const { tenantId, paymentDate, paidAmount, paymentBy, unitNumber } = req.body;
     const tenant = await Tenant.findByPk(tenantId).catch((error) => {
       console.error(error);

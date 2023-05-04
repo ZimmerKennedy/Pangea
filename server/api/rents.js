@@ -15,7 +15,6 @@ router.route('/')
   const user = await User.findByToken(req.headers.authorization);
   try{
     if(user.role === 'tenant' || 'landlord'){
-      console.log(`hi im req.body`,req.body)
       const { rentAmount } = req.body;
       //validation
       if( !rentAmount){

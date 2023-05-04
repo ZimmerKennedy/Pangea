@@ -5,7 +5,6 @@ const Tenant = require('../db/models/Tenant')
 
 router.post('/', async (req, res, next) => {
   try {
-    console.log(`req.body`,req.body)
     const { unitId, tenantId } = req.body
 
     const unit = await Unit.findOne({

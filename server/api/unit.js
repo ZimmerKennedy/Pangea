@@ -27,7 +27,7 @@ router.get("/:id", async (req, res, next) => {
   });
 
 router.post('/', async (req, res, next) => {
-    console.log(`im request.body`,req.body)
+
     try {
         const units = await Unit.create(req.body)
         res.json(units)
@@ -39,7 +39,7 @@ router.post('/', async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
     try {
-        console.log(`req.body`, req.body)
+
         const { unitNumber, bedrooms, propertyId } = req.body;
       const unit = await Unit.create({
         unitNumber,

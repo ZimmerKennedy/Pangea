@@ -8,7 +8,7 @@ const Payment = require("../server/db/models/Payment");
 const PaymentHistory = require("../server/db/models/PaymentHistory");
 
 
-console.log(`this is models`, User)
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.

@@ -69,8 +69,6 @@ const Units = () => {
   const dispatch = useDispatch();
   const units = useSelector(selectUnits);
   const properties = useSelector(selectProperties);
-  console.log(`units`, units);
-  console.log(`properties`, properties);
   useEffect(() => {
     dispatch(fetchUnitsAsync());
     dispatch(fetchPropertiesAsync());

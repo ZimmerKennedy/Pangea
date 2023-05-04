@@ -59,7 +59,6 @@ router.get('/:id/landlordview', async (request, response, next) => {
   });
 
 router.post("/", async (req, res, next) => {
-  console.log(`im request.body`, req.body);
   try {
     const tenant = await Tenant.create(req.body);
     res.json(tenant);
