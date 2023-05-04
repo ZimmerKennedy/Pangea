@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getLandlordId = (userId) => async dispatch => {
     try {
-      const userResponse = await axios.get(`api/users/${userId}`);
+      const userResponse = await axios.get(`https://rentility.onrender.com/api/users/${userId}`);
       if (userResponse.data.role !== "landlord") {
         return new Error("The user is not a landlord.");
       }
@@ -16,13 +16,13 @@ export const getLandlordId = (userId) => async dispatch => {
 
 export const createProperty = (propertyId, data) => async dispatch => {
     try {
-      const userResponse = await axios.get(`api/users/${data.userId}`);
+      const userResponse = await axios.get(`https://rentility.onrender.com/api/users/${data.userId}`);
       if (userResponse.data.role !== "landlord") {
         return dispatch(createPropertyFailure("The user is not a landlord."));
       }
-      const landlordResponse = await axios.get(`api/landlords?userId=${data.userId}`);
+      const landlordResponse = await axios.get(`https://rentility.onrender.com/api/landlords?userId=${data.userId}`);
       const landlordId = landlordResponse.data[0].id;
-      const propertyResponse = await axios.put(`api/property/${propertyId}`, {
+      const propertyResponse = await axios.put(`https://rentility.onrender.com/api/property/${propertyId}`, {
         ...data,
         landlordId,
       });

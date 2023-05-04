@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const updateTenant = (tenantId, data) => async dispatch => {
     try{
-        const response = await axios.put(`api/tenant/${tenantId}`, data);
+        const response = await axios.put(`https://rentility.onrender.com/api/tenant/${tenantId}`, data);
         dispatch(updateTenantSuccess(response.data));
     } catch (err) {
         dispatch(updateTenantFailure(err.message));
