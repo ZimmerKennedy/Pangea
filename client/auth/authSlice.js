@@ -13,7 +13,7 @@ export const me = createAsyncThunk('auth/me', async () => {
   const token = window.localStorage.getItem(TOKEN);
   try {
     if (token) {
-      const res = await axios.get('/auth/me', {
+      const res = await axios.get('https://rentility.onrender.com/auth/me', {
         headers: {
           authorization: token,
         },
@@ -35,7 +35,7 @@ export const authenticate = createAsyncThunk(
   'auth/authenticate',
   async ({ username, password, role, method }, thunkAPI) => {
     try {
-      const res = await axios.post(`/auth/${method}`, { username, password, role });
+      const res = await axios.post(`https://rentility.onrender.com/auth/${method}`, { username, password, role });
       window.localStorage.setItem(TOKEN, res.data.token);
       thunkAPI.dispatch(me());
     } catch (err) {

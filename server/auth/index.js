@@ -6,13 +6,6 @@ module.exports = router;
 const Landlord = require("../db/models/Landlord");
 const Tenant = require("../db/models/Tenant");
 
-// router.get('/signup', async (req, res, next) => {
-//   try {
-//     res.send(await User.findAll());
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 router.post("/login", async (req, res, next) => {
 	try {
