@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
+const cors = require("cors");
 module.exports = app
 
 // logging middleware
@@ -10,9 +11,15 @@ app.use(morgan('dev'))
 // body parsing middleware
 app.use(express.json())
 
+app.use(cors({ 
+  origin: ["http://localhost:8080", "https://rentility.onrender.com", "https://rentility.vercel.app"], 
+  credentials: true 
+}));
 // auth and api routes
 app.use('/auth', require('./auth'))
 app.use('/api', require('./api'))
+
+
 
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '..', 'public/index.html')));
 

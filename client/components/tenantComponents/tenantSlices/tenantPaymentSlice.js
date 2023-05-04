@@ -6,7 +6,7 @@ export const submitPayment =
   (tenantId, paymentDate, paidAmount, paymentBy, unitNumber) => async (dispatch) => {
     dispatch(submitPaymentStart());
     try {
-      const response = await axios.post("/api/payment", {
+      const response = await axios.post("https://rentility.onrender.com/api/payment", {
         tenantId,
         paymentDate,
         paidAmount,

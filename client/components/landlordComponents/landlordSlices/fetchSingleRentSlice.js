@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchRentAsync = createAsyncThunk("getRent", async (id) => {
 	try {
-		const { data } = await axios.get(`/api/rents/${id}`);
+		const { data } = await axios.get(`https://rentility.onrender.com/api/rents/${id}`);
 		return data;
 	} catch (error) {
 		console.error(error);

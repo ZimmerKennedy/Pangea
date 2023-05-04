@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchRentsAsync = createAsyncThunk("getRent", async () => {
 	try {
-		const { data } = await axios.get("/api/rents");
+		const { data } = await axios.get("https://rentility.onrender.com/api/rents");
 		return data;
 	} catch (error) {
 		console.error(error);
@@ -21,7 +21,7 @@ export const addRentAsync = createAsyncThunk(
 					Authorization: token,
 				},
 			};
-			const { data } = await axios.post("/api/rents", rentData, config);
+			const { data } = await axios.post("https://rentility.onrender.com/api/rents", rentData, config);
 			alert("This rent is now added to inventory");
 			return data;
 		} catch (error) {
@@ -42,7 +42,7 @@ export const deleteRentAsync = createAsyncThunk(
 					Authorization: token,
 				},
 			};
-			const { data } = await axios.delete(`/api/rents/${rentId}`, config);
+			const { data } = await axios.delete(`https://rentility.onrender.com/api/rents/${rentId}`, config);
 			return data;
 		} catch (error) {
 			throw new Error(error);

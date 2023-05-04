@@ -5,7 +5,7 @@ export const associateTenantWithUnit = createAsyncThunk(
   'tenant/associateTenantWithUnit',
   async ({ unitId, tenantId }) => {
     const response = await axios.post(
-      `/api/associateTenantWithUnit`,
+      `https://rentility.onrender.com/api/associateTenantWithUnit`,
       {
         unitId,
         tenantId,

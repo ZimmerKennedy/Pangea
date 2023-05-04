@@ -5,7 +5,7 @@ export const createMaintenanceRequest = createAsyncThunk(
   'maintenanceRequest/create',
   async (requestData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/api/maintenanceRequest', requestData);
+      const response = await axios.post('https://rentility.onrender.com/api/maintenanceRequest', requestData);
       return response.data;
     } catch (error) {
       if (error.response) {

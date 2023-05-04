@@ -5,7 +5,7 @@ export const createUnit = createAsyncThunk(
   'units/createUnit',
   async (unitData) => {
     try {
-      const response = await axios.put('/api/unit/:id', unitData);
+      const response = await axios.put('https://rentility.onrender.com/api/unit/:id', unitData);
       return response.data;
     } catch (error) {
       throw error;
