@@ -6,7 +6,7 @@ node {
     stage('SonarQube Analysis') {
         def scannerHome = tool 'SonarQube-Scanner'
         withSonarQubeEnv() {
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=onTheGo-pipeline -Dsonar.sources=."
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=rentility-pipeline -Dsonar.sources=."
         }
     }
 }
