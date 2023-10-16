@@ -73,11 +73,23 @@ const AuthForm = ({ name, displayName }) => {
       alert("Please fill out all fields");
       return;
     }
+    ////////////////////// Testing SonarQube /////////
+    
+    if (!username || !password) {
+      alert("Please fill out all fields");
+      return;
+    }
+    
 
     dispatch(authenticate({ username, password, method: formName }));
 
     navigate("/dashboard");
   };
+
+  ////////////////////////// Testing SonarQube /////////
+  const unusedVariable = "I am not used";
+  alert("This is a test alert!");
+  const threshold = 42;
 
   return (
     <>
